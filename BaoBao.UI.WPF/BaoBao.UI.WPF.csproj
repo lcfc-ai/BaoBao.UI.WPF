@@ -9,17 +9,24 @@
 
 		<!-- NuGet Package Metadata -->
 		<Version>1.0.0</Version>
-		<Authors>YourName</Authors>
-		<Company>YourCompany</Company>
+		<Authors>BaoBao</Authors>
+		<Company>BaoBao</Company>
 		<Description>A modern, lightweight, and feature-rich WPF UI control library. Contains various controls like BaoBaoAvatar, BaoBaoToggleSwitch, BaoBaoTagInput, and more with theming support.</Description>
 		<PackageTags>WPF;UI;Controls;Modern;Theme;Library;BaoBao.UI.WPF</PackageTags>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-		<PackageReadmeFile></PackageReadmeFile>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
 	</PropertyGroup>
 
 	<ItemGroup>
 		<PackageReference Include="MahApps.Metro.IconPacks.Material" Version="6.2.1" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="..\README.md" Pack="true" PackagePath="\" Link="README.md" />
+		<None Include="..\docs\images\theme-sample-default.png" Pack="true" PackagePath="docs/images/" Link="docs/images/theme-sample-default.png" />
+		<None Include="..\docs\images\theme-sample-dark-lime.png" Pack="true" PackagePath="docs/images/" Link="docs/images/theme-sample-dark-lime.png" />
+		<None Include="..\docs\images\theme-sample-dark-brand.png" Pack="true" PackagePath="docs/images/" Link="docs/images/theme-sample-dark-brand.png" />
 	</ItemGroup>
 
 </Project>

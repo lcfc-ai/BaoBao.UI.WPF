@@ -1,0 +1,43 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!--  BitFun-inspired lime palette  -->
+    <Color x:Key="BaoBao_Color_Primary">#22c55e</Color>
+    <Color x:Key="BaoBao_Color_Primary_Hover">#4ade80</Color>
+    <Color x:Key="BaoBao_Color_Primary_Pressed">#16a34a</Color>
+
+    <Color x:Key="BaoBao_Color_Success">#22c55e</Color>
+    <Color x:Key="BaoBao_Color_Info">#22c55e</Color>
+    <Color x:Key="BaoBao_Color_Warning">#f0a020</Color>
+    <Color x:Key="BaoBao_Color_Error">#d03050</Color>
+
+    <Color x:Key="BaoBao_Color_Background_Light">#f6fcf8</Color>
+    <Color x:Key="BaoBao_Color_Background_Dark">#102118</Color>
+    <Color x:Key="BaoBao_Color_Surface_Light">#fbfefc</Color>
+    <Color x:Key="BaoBao_Color_Surface_Dark">#163023</Color>
+
+    <Color x:Key="BaoBao_Color_Fill_Light">#f8fdfa</Color>
+    <Color x:Key="BaoBao_Color_Fill_Dark">#11251b</Color>
+
+    <Color x:Key="BaoBao_Color_Header_Light">#edf9f1</Color>
+    <Color x:Key="BaoBao_Color_Header_Dark">#1c3c2c</Color>
+
+    <Color x:Key="BaoBao_Color_Text_Primary_Light">#244636</Color>
+    <Color x:Key="BaoBao_Color_Text_Primary_Dark">#ebfff1</Color>
+    <Color x:Key="BaoBao_Color_Text_Secondary_Light">#5e8270</Color>
+    <Color x:Key="BaoBao_Color_Text_Secondary_Dark">#99d8b2</Color>
+    <Color x:Key="BaoBao_Color_Text_PlaceHolder_Light">#9db9aa</Color>
+    <Color x:Key="BaoBao_Color_Text_PlaceHolder_Dark">#5d7b6a</Color>
+
+    <Color x:Key="BaoBao_Color_Border_Light">#cfe8d8</Color>
+    <Color x:Key="BaoBao_Color_Border_Dark">#315743</Color>
+
+    <SolidColorBrush x:Key="BaoBao_Primary_Brush" Color="{StaticResource BaoBao_Color_Primary}" />
+    <SolidColorBrush x:Key="BaoBao_Primary_Hover_Brush" Color="{StaticResource BaoBao_Color_Primary_Hover}" />
+    <SolidColorBrush x:Key="BaoBao_Primary_Pressed_Brush" Color="{StaticResource BaoBao_Color_Primary_Pressed}" />
+
+    <SolidColorBrush x:Key="BaoBao_Success_Brush" Color="{StaticResource BaoBao_Color_Success}" />
+    <SolidColorBrush x:Key="BaoBao_Info_Brush" Color="{StaticResource BaoBao_Color_Info}" />
+    <SolidColorBrush x:Key="BaoBao_Warning_Brush" Color="{StaticResource BaoBao_Color_Warning}" />
+    <SolidColorBrush x:Key="BaoBao_Error_Brush" Color="{StaticResource BaoBao_Color_Error}" />
+
+</ResourceDictionary>

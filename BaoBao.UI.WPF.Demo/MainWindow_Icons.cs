@@ -15,8 +15,8 @@ namespace BaoBao.UI.WPF.Demo
         // Add new region for Icon handling
         #region Icon Gallery
 
-        public ObservableCollection<string> AllIcons { get; set; }
-        public ObservableCollection<string> FilteredIcons { get; set; }
+        public ObservableCollection<string> AllIcons { get; set; } = new();
+        public ObservableCollection<string> FilteredIcons { get; set; } = new();
         private int _currentPage = 1;
         private int _pageSize = 100;
 

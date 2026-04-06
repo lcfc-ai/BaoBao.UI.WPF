@@ -7,19 +7,7 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <!--  Order matters for ThemeManager replacement logic  -->
-                <!--  1. Palette (Can be swapped)  -->
-                <ResourceDictionary Source="pack://application:,,,/BaoBao.UI.WPF;component/Themes/Colors.xaml" />
-                
-                <!--  2. Theme (Light/Dark, Can be swapped)  -->
-                <ResourceDictionary Source="pack://application:,,,/BaoBao.UI.WPF;component/Themes/Theme.Light.xaml" />
-                
-                <!--  3. Base Resources (Static)  -->
-                <ResourceDictionary Source="pack://application:,,,/BaoBao.UI.WPF;component/Themes/Sizes.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/BaoBao.UI.WPF;component/Themes/BaseStyles.xaml" />
-                
-                <!--  4. Controls & Styles (Depend on above)  -->
-                <ResourceDictionary Source="pack://application:,,,/BaoBao.UI.WPF;component/Themes/Generic.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/BaoBao.UI.WPF;component/Themes/BaoBao.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
