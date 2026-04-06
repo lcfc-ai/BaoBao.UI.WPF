@@ -1,0 +1,11 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style x:Key="BaoBaoCard" TargetType="Border">
+        <Setter Property="Background" Value="{DynamicResource BaoBao_Surface_Brush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource BaoBao_Border_Brush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="CornerRadius" Value="{DynamicResource BaoBao_CornerRadius_Medium}" />
+        <Setter Property="Padding" Value="{DynamicResource BaoBao_Spacing_Medium}" />
+    </Style>
+
+</ResourceDictionary>

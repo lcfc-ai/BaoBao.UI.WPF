@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="BaoBao.UI.WPF/BaoBao.UI.WPF.csproj" />
+  <Project Path="BaoBao.UI.WPF.Extend/BaoBao.UI.WPF.Extend.csproj" />
+  <Project Path="BaoBao.UI.WPF.Demo/BaoBao.UI.WPF.Demo.csproj" />
+</Solution>

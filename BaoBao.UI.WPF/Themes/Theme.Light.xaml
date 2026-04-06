@@ -1,0 +1,105 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!--
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/BaoBao.UI.WPF;component/Themes/Colors.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+    -->
+
+    <!--  Global Brushes  -->
+    <SolidColorBrush x:Key="BaoBao_Background_Brush" Color="{DynamicResource BaoBao_Color_Background_Light}" />
+    <SolidColorBrush x:Key="BaoBao_Surface_Brush" Color="{DynamicResource BaoBao_Color_Surface_Light}" />
+    <SolidColorBrush x:Key="BaoBao_Control_Fill_Brush" Color="{DynamicResource BaoBao_Color_Fill_Light}" />
+    <SolidColorBrush x:Key="BaoBao_Border_Brush" Color="{DynamicResource BaoBao_Color_Border_Light}" />
+    
+    <!--  Text Brushes  -->
+    <SolidColorBrush x:Key="BaoBao_Text_Primary_Brush" Color="{DynamicResource BaoBao_Color_Text_Primary_Light}" />
+    <SolidColorBrush x:Key="BaoBao_Text_Secondary_Brush" Color="{DynamicResource BaoBao_Color_Text_Secondary_Light}" />
+    <SolidColorBrush x:Key="BaoBao_Text_Placeholder_Brush" Color="{DynamicResource BaoBao_Color_Text_PlaceHolder_Light}" />
+
+    <!--  Control Specifics: Header  -->
+    <SolidColorBrush x:Key="BaoBao_Header_Background_Brush" Color="{DynamicResource BaoBao_Color_Header_Light}" />
+    <SolidColorBrush x:Key="BaoBao_Header_Foreground_Brush" Color="{DynamicResource BaoBao_Color_Text_Primary_Light}" />
+    
+    <!--  Control Specifics: Button (Default)  -->
+    <SolidColorBrush x:Key="BaoBao_Button_Background_Base" Color="{DynamicResource BaoBao_Color_Header_Light}" />
+    <SolidColorBrush x:Key="BaoBao_Button_Foreground_Base" Color="{DynamicResource BaoBao_Color_Text_Primary_Light}" />
+    <SolidColorBrush x:Key="BaoBao_Button_Border_Base" Color="{DynamicResource BaoBao_Color_Border_Light}" />
+    <SolidColorBrush x:Key="BaoBao_Button_Background_Hover" Color="{DynamicResource BaoBao_Color_Primary_Hover}" />
+    <SolidColorBrush x:Key="BaoBao_Button_Background_Pressed" Color="{DynamicResource BaoBao_Color_Primary_Pressed}" />
+    <SolidColorBrush x:Key="BaoBao_Button_Border_Hover" Color="{DynamicResource BaoBao_Color_Primary}" />
+    <SolidColorBrush x:Key="BaoBao_Button_Foreground_Hover" Color="{DynamicResource BaoBao_Color_Primary}" />
+    <SolidColorBrush x:Key="BaoBao_Button_Foreground_Pressed" Color="{DynamicResource BaoBao_Color_Primary_Pressed}" />
+
+    <!--  Control Specifics: Button (Primary)  -->
+    <SolidColorBrush x:Key="BaoBao_Button_Primary_Background" Color="{DynamicResource BaoBao_Color_Primary}" />
+    <SolidColorBrush x:Key="BaoBao_Button_Primary_Border" Color="{DynamicResource BaoBao_Color_Primary}" />
+    <SolidColorBrush x:Key="BaoBao_Button_Primary_Foreground" Color="White" />
+    <SolidColorBrush x:Key="BaoBao_Button_Primary_Background_Hover" Color="{DynamicResource BaoBao_Color_Primary_Hover}" />
+    <SolidColorBrush x:Key="BaoBao_Button_Primary_Border_Hover" Color="{DynamicResource BaoBao_Color_Primary_Hover}" />
+    <SolidColorBrush x:Key="BaoBao_Button_Primary_Background_Pressed" Color="{DynamicResource BaoBao_Color_Primary_Pressed}" />
+    <SolidColorBrush x:Key="BaoBao_Button_Primary_Border_Pressed" Color="{DynamicResource BaoBao_Color_Primary_Pressed}" />
+
+    <!--  Control Specifics: Input (TextBox, etc)  -->
+    <SolidColorBrush x:Key="BaoBao_Input_Background" Color="{DynamicResource BaoBao_Color_Fill_Light}" />
+    <SolidColorBrush x:Key="BaoBao_Input_Border" Color="{DynamicResource BaoBao_Color_Border_Light}" />
+    <SolidColorBrush x:Key="BaoBao_Input_Foreground" Color="{DynamicResource BaoBao_Color_Text_Primary_Light}" />
+    <SolidColorBrush x:Key="BaoBao_Input_Placeholder" Color="{DynamicResource BaoBao_Color_Text_PlaceHolder_Light}" />
+    <SolidColorBrush x:Key="BaoBao_Input_Border_Hover" Color="{DynamicResource BaoBao_Color_Primary}" />
+    <SolidColorBrush x:Key="BaoBao_Input_Border_Focus" Color="{DynamicResource BaoBao_Color_Primary}" />
+
+    <!--  Control Specifics: Toggle (CheckBox, RadioButton)  -->
+    <SolidColorBrush x:Key="BaoBao_Toggle_Background_Unchecked" Color="Transparent" />
+    <SolidColorBrush x:Key="BaoBao_Toggle_Border_Unchecked" Color="{DynamicResource BaoBao_Color_Border_Light}" />
+    <SolidColorBrush x:Key="BaoBao_Toggle_Background_Checked" Color="{DynamicResource BaoBao_Color_Primary}" />
+    <SolidColorBrush x:Key="BaoBao_Toggle_Border_Checked" Color="{DynamicResource BaoBao_Color_Primary}" />
+    <SolidColorBrush x:Key="BaoBao_Toggle_Glyph" Color="White" />
+    <SolidColorBrush x:Key="BaoBao_Toggle_Background_Hover" Color="{DynamicResource BaoBao_Color_Primary_Hover}" />
+
+    <!--  Control Specifics: Item (ListBox, Menu, ComboBoxItem)  -->
+    <SolidColorBrush x:Key="BaoBao_Item_Background_Hover" Color="{DynamicResource BaoBao_Color_Primary_Hover}" Opacity="0.15" />
+    <SolidColorBrush x:Key="BaoBao_Item_Foreground_Hover" Color="{DynamicResource BaoBao_Color_Text_Primary_Light}" />
+    <SolidColorBrush x:Key="BaoBao_Item_Background_Selected" Color="{DynamicResource BaoBao_Color_Primary}" Opacity="0.2" />
+    <SolidColorBrush x:Key="BaoBao_Item_Foreground_Selected" Color="{DynamicResource BaoBao_Color_Text_Primary_Light}" />
+    <SolidColorBrush x:Key="BaoBao_Item_Border_Selected" Color="{DynamicResource BaoBao_Color_Primary}" />
+
+    <!--  Control Specifics: Progress / Slider  -->
+    <SolidColorBrush x:Key="BaoBao_Track_Background" Color="{DynamicResource BaoBao_Color_Border_Light}" />
+    <SolidColorBrush x:Key="BaoBao_Progress_Fill" Color="{DynamicResource BaoBao_Color_Primary}" />
+    <SolidColorBrush x:Key="BaoBao_Thumb_Border" Color="{DynamicResource BaoBao_Color_Primary}" />
+    <SolidColorBrush x:Key="BaoBao_Thumb_Fill" Color="White" />
+    <SolidColorBrush x:Key="BaoBao_Thumb_Hover" Color="{DynamicResource BaoBao_Color_Primary_Hover}" />
+
+    <!--  Control Specifics: Popup (Menu, ToolTip)  -->
+    <SolidColorBrush x:Key="BaoBao_Popup_Background" Color="{DynamicResource BaoBao_Color_Surface_Light}" />
+    <SolidColorBrush x:Key="BaoBao_Popup_Border" Color="{DynamicResource BaoBao_Color_Border_Light}" />
+    <SolidColorBrush x:Key="BaoBao_Popup_Foreground" Color="{DynamicResource BaoBao_Color_Text_Primary_Light}" />
+
+    <!--  Control Specifics: TabControl  -->
+    <SolidColorBrush x:Key="BaoBao_Tab_Background" Color="Transparent" />
+    <SolidColorBrush x:Key="BaoBao_Tab_Foreground" Color="{DynamicResource BaoBao_Color_Text_Secondary_Light}" />
+    <SolidColorBrush x:Key="BaoBao_Tab_Foreground_Selected" Color="{DynamicResource BaoBao_Color_Primary}" />
+    <SolidColorBrush x:Key="BaoBao_Tab_Foreground_Hover" Color="{DynamicResource BaoBao_Color_Text_Primary_Light}" />
+    <SolidColorBrush x:Key="BaoBao_Tab_Indicator_Brush" Color="{DynamicResource BaoBao_Color_Primary}" />
+
+    <!--  Control Specifics: Calendar  -->
+    <SolidColorBrush x:Key="BaoBao_Calendar_Background" Color="{DynamicResource BaoBao_Color_Surface_Light}" />
+    <SolidColorBrush x:Key="BaoBao_Calendar_Border" Color="{DynamicResource BaoBao_Color_Border_Light}" />
+    <SolidColorBrush x:Key="BaoBao_Calendar_Header_Button_Hover" Color="{DynamicResource BaoBao_Color_Fill_Light}" />
+    <SolidColorBrush x:Key="BaoBao_Calendar_Day_Hover" Color="{DynamicResource BaoBao_Color_Primary_Hover}" />
+    <SolidColorBrush x:Key="BaoBao_Calendar_Day_Selected_Background" Color="{DynamicResource BaoBao_Color_Primary}" />
+    <SolidColorBrush x:Key="BaoBao_Calendar_Day_Selected_Foreground" Color="White" />
+    <SolidColorBrush x:Key="BaoBao_Calendar_Day_Today_Border" Color="{DynamicResource BaoBao_Color_Primary}" />
+    
+    <!--  Control Specifics: Misc  -->
+    <SolidColorBrush x:Key="BaoBao_Window_TitleBar_Background" Color="{DynamicResource BaoBao_Color_Primary}" />
+    <SolidColorBrush x:Key="BaoBao_Expander_Arrow_Stroke_Selected" Color="{DynamicResource BaoBao_Color_Primary}" />
+    <SolidColorBrush x:Key="BaoBao_Expander_Arrow_Stroke_Hover" Color="{DynamicResource BaoBao_Color_Primary_Hover}" />
+    <SolidColorBrush x:Key="BaoBao_Step_Indicator_Background_Active" Color="{DynamicResource BaoBao_Color_Primary}" />
+    <SolidColorBrush x:Key="BaoBao_Step_Line_Background_Active" Color="{DynamicResource BaoBao_Color_Primary}" />
+    <SolidColorBrush x:Key="BaoBao_Timeline_Dot_Border" Color="{DynamicResource BaoBao_Color_Primary}" />
+    <SolidColorBrush x:Key="BaoBao_Loading_Foreground" Color="{DynamicResource BaoBao_Color_Primary}" />
+    <SolidColorBrush x:Key="BaoBao_Breadcrumb_Foreground_Hover" Color="{DynamicResource BaoBao_Color_Primary}" />
+    <SolidColorBrush x:Key="BaoBao_Code_Foreground" Color="{DynamicResource BaoBao_Color_Primary}" />
+
+</ResourceDictionary>

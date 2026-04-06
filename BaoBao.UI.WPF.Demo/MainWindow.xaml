@@ -1,0 +1,1875 @@
+<controls:BaoBaoWindow
+    x:Class="BaoBao.UI.WPF.Demo.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:BaoBao.UI.WPF.Controls;assembly=BaoBao.UI.WPF"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:helpers="clr-namespace:BaoBao.UI.WPF.Helpers;assembly=BaoBao.UI.WPF"
+    xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    Title="BaoBao.UI.WPF Gallery"
+    Width="1200"
+    Height="800"
+    BaoBaoLoadingCancelled="MainBaoBaoLoading_Cancel"
+    Style="{StaticResource BaoBaoWindowStyle}"
+    WindowStartupLocation="CenterScreen"
+    mc:Ignorable="d">
+
+    <controls:BaoBaoWindow.TitleBarContent>
+        <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+            <Button
+                Margin="0,0,10,0"
+                Click="BtnOpenBaoBaoDrawer_Click"
+                Content="Settings BaoBaoDrawer" />
+            <TextBlock
+                Margin="0,0,20,0"
+                VerticalAlignment="Center"
+                Foreground="{DynamicResource BaoBao_Text_Secondary_Brush}"
+                Text="| DF UI Style" />
+
+            <Menu
+                Margin="0"
+                Padding="0"
+                VerticalAlignment="Center"
+                Style="{DynamicResource BaoBaoTitleBarMenu}">
+                <MenuItem Header="File">
+                    <MenuItem Header="New" InputGestureText="Ctrl+N" />
+                    <MenuItem Header="Open" InputGestureText="Ctrl+O" />
+                    <Separator />
+                    <MenuItem Header="Exit" />
+                </MenuItem>
+                <MenuItem Header="Help" />
+            </Menu>
+        </StackPanel>
+    </controls:BaoBaoWindow.TitleBarContent>
+
+    <Grid Margin="{DynamicResource Spacing_Large}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!--  Header Area  -->
+        <Grid Grid.Row="0" Margin="0,0,0,20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <StackPanel>
+                <TextBlock
+                    FontSize="{DynamicResource BaoBao_Header_FontSize}"
+                    FontWeight="Bold"
+                    Foreground="{DynamicResource BaoBao_Primary_Brush}"
+                    Text="Component Gallery" />
+                <TextBlock
+                    Margin="0,5,0,0"
+                    Foreground="{DynamicResource BaoBao_Text_Secondary_Brush}"
+                    Text="Explore the DF UI WPF components." />
+            </StackPanel>
+
+            <StackPanel Grid.Column="1" Orientation="Horizontal">
+                <ComboBox
+                    x:Name="PaletteSelector"
+                    Width="120"
+                    Margin="0,0,10,0"
+                    VerticalAlignment="Center"
+                    SelectionChanged="PaletteSelector_SelectionChanged" />
+                <controls:BaoBaoToggleSwitch
+                    x:Name="ThemeToggle"
+                    Checked="ThemeToggle_Checked"
+                    Content="Dark Mode"
+                    Unchecked="ThemeToggle_Unchecked" />
+            </StackPanel>
+        </Grid>
+
+        <!--  Main Content Tabs  -->
+        <TabControl Grid.Row="1" BorderThickness="0">
+
+            <!--  Tab: New Components  -->
+            <TabItem Header="New">
+                <ScrollViewer Padding="0,20,20,20" VerticalScrollBarVisibility="Auto">
+                    <controls:BaoBaoUniformGrid>
+                        <controls:BaoBaoCodeExample Code="&lt;controls:BaoBaoBreadcrumbBar Separator=&quot; / &quot;&gt;&#xA;    &lt;sys:String&gt;Home&lt;/sys:String&gt;&#xA;    &lt;sys:String&gt;Section&lt;/sys:String&gt;&#xA;    &lt;sys:String&gt;Page&lt;/sys:String&gt;&#xA;&lt;/controls:BaoBaoBreadcrumbBar&gt;" Header="Breadcrumb Navigation">
+                            <controls:BaoBaoBreadcrumbBar>
+                                <sys:String>Home</sys:String>
+                                <sys:String>UI Components</sys:String>
+                                <sys:String>New Features</sys:String>
+                            </controls:BaoBaoBreadcrumbBar>
+                        </controls:BaoBaoCodeExample>
+
+                        <controls:BaoBaoCodeExample Code="&lt;controls:BaoBaoAvatar Text=&quot;JD&quot; /&gt;&#xA;&lt;controls:BaoBaoAvatar&gt;...&lt;Icon /&gt;...&lt;/controls:BaoBaoAvatar&gt;&#xA;&lt;controls:BaoBaoAvatar Source=&quot;...&quot; /&gt;" Header="BaoBaoAvatar">
+                            <StackPanel Orientation="Horizontal">
+                                <controls:BaoBaoAvatar
+                                    Margin="0,0,20,0"
+                                    Text="A"
+                                    ToolTip="Text Fallback" />
+                                <controls:BaoBaoAvatar
+                                    Margin="0,0,20,0"
+                                    Background="#2080f0"
+                                    Foreground="White"
+                                    ToolTip="Icon BaoBaoAvatar">
+                                    <controls:BaoBaoAvatar.Icon>
+                                        <iconPacks:PackIconMaterial
+                                            Width="24"
+                                            Height="24"
+                                            Kind="Account" />
+                                    </controls:BaoBaoAvatar.Icon>
+                                </controls:BaoBaoAvatar>
+                                <controls:BaoBaoAvatar
+                                    Margin="0,0,20,0"
+                                    CornerRadius="4"
+                                    Text="SQ"
+                                    ToolTip="Square Radius" />
+                            </StackPanel>
+                        </controls:BaoBaoCodeExample>
+
+                        <controls:BaoBaoCodeExample Code="&lt;controls:BaoBaoBadge Value=&quot;5&quot;&gt;...&lt;/controls:BaoBaoBadge&gt;&#xA;&lt;controls:BaoBaoBadge Value=&quot;100&quot; Maximum=&quot;99&quot;&gt;...&lt;/controls:BaoBaoBadge&gt;&#xA;&lt;controls:BaoBaoBadge IsDot=&quot;True&quot;&gt;...&lt;/controls:BaoBaoBadge&gt;" Header="BaoBaoBadge">
+                            <controls:BaoBaoUniformGrid
+                                Margin="0,10,0,0"
+                                VerticalAlignment="Top"
+                                Columns="1">
+                                <controls:BaoBaoBadge Margin="0,0,30,0" Value="5">
+                                    <Button Content="Messages" />
+                                </controls:BaoBaoBadge>
+
+                                <controls:BaoBaoBadge
+                                    Margin="0,0,30,0"
+                                    Maximum="99"
+                                    Value="120">
+                                    <Button Content="Emails" />
+                                </controls:BaoBaoBadge>
+
+                                <controls:BaoBaoBadge Margin="0,0,30,0" IsDot="True">
+                                    <Button Content="Updates" />
+                                </controls:BaoBaoBadge>
+                            </controls:BaoBaoUniformGrid>
+                        </controls:BaoBaoCodeExample>
+
+                        <controls:BaoBaoCodeExample Code="&lt;controls:BaoBaoColorPicker /&gt;" Header="Color Picker">
+                            <controls:BaoBaoColorPicker HorizontalAlignment="Left" />
+                        </controls:BaoBaoCodeExample>
+                    </controls:BaoBaoUniformGrid>
+                </ScrollViewer>
+            </TabItem>
+
+            <!--  Tab: Buttons & Icons  -->
+            <TabItem Header="Basic">
+                <ScrollViewer Padding="0,20,20,20" VerticalScrollBarVisibility="Auto">
+                    <controls:BaoBaoUniformGrid>
+                        <controls:BaoBaoCodeExample Code="&lt;Button Content=&quot;Default Button&quot; /&gt;&#xA;&lt;Button Content=&quot;Primary Button&quot; Style=&quot;{DynamicResource BaoBaoPrimaryButton}&quot; /&gt;&#xA;&lt;Button Content=&quot;Disabled&quot; IsEnabled=&quot;False&quot; /&gt;" Header="Standard Buttons">
+                            <WrapPanel>
+                                <Button Margin="0,0,10,10" Content="Default Button" />
+                                <Button
+                                    Margin="0,0,10,10"
+                                    Content="Primary Button"
+                                    Style="{DynamicResource BaoBaoPrimaryButton}" />
+                                <Button
+                                    Margin="0,0,10,10"
+                                    Content="Disabled"
+                                    IsEnabled="False" />
+                            </WrapPanel>
+                        </controls:BaoBaoCodeExample>
+
+                        <controls:BaoBaoCodeExample Code="&lt;Button Content=&quot;Search&quot; Style=&quot;{DynamicResource BaoBaoPrimaryButton}&quot;&gt;&#xA;    &lt;helpers:ControlAttach.Icon&gt;&#xA;        &lt;iconPacks:PackIconMaterial Kind=&quot;Magnify&quot; /&gt;&#xA;    &lt;/helpers:ControlAttach.Icon&gt;&#xA;&lt;/Button&gt;&#xA;&#xA;&lt;Button Style=&quot;{DynamicResource BaoBaoVerticalButton}&quot; Content=&quot;Save&quot;&gt;&#xA;    &lt;helpers:ControlAttach.Icon&gt;&#xA;        &lt;iconPacks:PackIconMaterial Kind=&quot;ContentSave&quot; Width=&quot;24&quot; Height=&quot;24&quot; /&gt;&#xA;    &lt;/helpers:ControlAttach.Icon&gt;&#xA;&lt;/Button&gt;" Header="Buttons with Icons">
+                            <WrapPanel>
+                                <Button
+                                    Margin="0,0,10,10"
+                                    Content="Search"
+                                    Style="{DynamicResource BaoBaoPrimaryButton}">
+                                    <helpers:ControlAttach.Icon>
+                                        <iconPacks:PackIconMaterial Kind="Magnify" />
+                                    </helpers:ControlAttach.Icon>
+                                </Button>
+                                <Button Margin="0,0,10,10" Content="Settings">
+                                    <helpers:ControlAttach.Icon>
+                                        <iconPacks:PackIconMaterial Kind="Cog" />
+                                    </helpers:ControlAttach.Icon>
+                                </Button>
+                                <Button
+                                    Margin="0,0,10,10"
+                                    Content="Vertical Layout"
+                                    Style="{DynamicResource BaoBaoVerticalButton}">
+                                    <helpers:ControlAttach.Icon>
+                                        <iconPacks:PackIconMaterial
+                                            Width="24"
+                                            Height="24"
+                                            Kind="ViewDashboard" />
+                                    </helpers:ControlAttach.Icon>
+                                </Button>
+                            </WrapPanel>
+                        </controls:BaoBaoCodeExample>
+
+                        <controls:BaoBaoCodeExample Code="&lt;controls:BaoBaoToggleSwitch Content=&quot;Switch me&quot; /&gt;&#xA;&lt;controls:BaoBaoToggleSwitch IsChecked=&quot;True&quot;&gt;&#xA;    &lt;controls:BaoBaoToggleSwitch.OnContent&gt;ON&lt;/controls:BaoBaoToggleSwitch.OnContent&gt;&#xA;    &lt;controls:BaoBaoToggleSwitch.OffContent&gt;OFF&lt;/controls:BaoBaoToggleSwitch.OffContent&gt;&#xA;&lt;/controls:BaoBaoToggleSwitch&gt;" Header="Toggle Switch">
+                            <StackPanel Orientation="Horizontal">
+                                <controls:BaoBaoToggleSwitch Margin="0,0,20,0" Content="Standard Switch" />
+                                <controls:BaoBaoToggleSwitch Content="With State Text" IsChecked="True">
+                                    <controls:BaoBaoToggleSwitch.OnContent>ON</controls:BaoBaoToggleSwitch.OnContent>
+                                    <controls:BaoBaoToggleSwitch.OffContent>OFF</controls:BaoBaoToggleSwitch.OffContent>
+                                </controls:BaoBaoToggleSwitch>
+                            </StackPanel>
+                        </controls:BaoBaoCodeExample>
+                    </controls:BaoBaoUniformGrid>
+                </ScrollViewer>
+            </TabItem>
+
+            <!--  Tab: Inputs  -->
+            <TabItem Header="Inputs">
+                <ScrollViewer Padding="0,20,20,20" VerticalScrollBarVisibility="Auto">
+                    <controls:BaoBaoUniformGrid>
+                        <controls:BaoBaoCodeExample Code="&lt;TextBox helpers:ControlAttach.Watermark=&quot;Enter text...&quot; /&gt;&#xA;&lt;TextBox helpers:ControlAttach.Watermark=&quot;With Icon&quot;&gt;&#xA;    &lt;helpers:ControlAttach.Icon&gt;&#xA;        &lt;iconPacks:PackIconMaterial Kind=&quot;Account&quot; /&gt;&#xA;    &lt;/helpers:ControlAttach.Icon&gt;&#xA;&lt;/TextBox&gt;" Header="TextBox">
+                            <StackPanel>
+                                <TextBox helpers:ControlAttach.Watermark="Enter text..." />
+                                <TextBox helpers:ControlAttach.Watermark="With Icon">
+                                    <helpers:ControlAttach.Icon>
+                                        <iconPacks:PackIconMaterial
+                                            Width="14"
+                                            Height="14"
+                                            Kind="Account" />
+                                    </helpers:ControlAttach.Icon>
+                                </TextBox>
+                            </StackPanel>
+                        </controls:BaoBaoCodeExample>
+
+                        <controls:BaoBaoCodeExample Code="&lt;PasswordBox helpers:ControlAttach.Watermark=&quot;Password&quot; /&gt;" Header="PasswordBox">
+
+                            <StackPanel>
+                                <PasswordBox helpers:ControlAttach.Watermark="Password" />
+                            </StackPanel>
+                        </controls:BaoBaoCodeExample>
+
+                        <controls:BaoBaoCodeExample Code="&lt;controls:BaoBaoNumericUpDown Value=&quot;5&quot; Maximum=&quot;10&quot; /&gt;&#xA;&lt;controls:BaoBaoDateTimePicker SelectedDate=&quot;{x:Static sys:DateTime.Now}&quot; /&gt;" Header="Numeric &amp; Date">
+                            <controls:BaoBaoUniformGrid Columns="1">
+                                <controls:BaoBaoNumericUpDown
+                                    Maximum="100"
+                                    Minimum="0"
+                                    Value="10" />
+                                <controls:BaoBaoDateTimePicker SelectedDate="{x:Static sys:DateTime.Now}" />
+                            </controls:BaoBaoUniformGrid>
+                        </controls:BaoBaoCodeExample>
+
+                        <controls:BaoBaoCodeExample Header="Tag Input">
+                            <controls:BaoBaoTagInput
+                                x:Name="OrderTags"
+                                Width="400"
+                                HorizontalAlignment="Left" />
+                        </controls:BaoBaoCodeExample>
+
+                        <controls:BaoBaoCodeExample Code="&lt;controls:BaoBaoRating Value=&quot;3&quot; /&gt;&#xA;&lt;controls:BaoBaoRating IsReadOnly=&quot;True&quot; Value=&quot;4&quot; /&gt;" Header="BaoBaoRating">
+                            <StackPanel Orientation="Horizontal">
+                                <controls:BaoBaoRating Margin="0,0,20,0" Value="3" />
+                                <controls:BaoBaoRating
+                                    Margin="0,0,20,0"
+                                    IsReadOnly="True"
+                                    ToolTip="Read Only"
+                                    Value="4" />
+                                <controls:BaoBaoRating
+                                    ItemSize="16"
+                                    Maximum="10"
+                                    ToolTip="Max 10, Small"
+                                    Value="7" />
+                            </StackPanel>
+                        </controls:BaoBaoCodeExample>
+                    </controls:BaoBaoUniformGrid>
+                </ScrollViewer>
+            </TabItem>
+
+            <!--  Tab: Data  -->
+            <TabItem Header="Data Display">
+                <ScrollViewer>
+                    <Grid Margin="0,20,0,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <!--  Examples  -->
+                            <RowDefinition Height="*" />
+                            <!--  DataGrid  -->
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <!--  BaoBaoStatistic & BaoBaoDivider Examples  -->
+                        <controls:BaoBaoUniformGrid Grid.Row="0" Margin="0,0,0,20">
+                            <controls:BaoBaoCodeExample Header="BaoBaoStatistic">
+                                <StackPanel Orientation="Horizontal">
+                                    <controls:BaoBaoStatistic
+                                        Margin="0,0,40,0"
+                                        Label="Active Users"
+                                        Value="1,234" />
+                                    <controls:BaoBaoStatistic
+                                        Margin="0,0,40,0"
+                                        Foreground="#18a058"
+                                        Label="Growth"
+                                        Suffix="%"
+                                        Value="12.5">
+                                        <controls:BaoBaoStatistic.Icon>
+                                            <iconPacks:PackIconMaterial
+                                                Width="24"
+                                                Height="24"
+                                                Foreground="#18a058"
+                                                Kind="ArrowUp" />
+                                        </controls:BaoBaoStatistic.Icon>
+                                    </controls:BaoBaoStatistic>
+                                    <controls:BaoBaoStatistic
+                                        Margin="0,0,40,0"
+                                        Label="Revenue"
+                                        Prefix="$"
+                                        Value="9,876" />
+                                </StackPanel>
+                            </controls:BaoBaoCodeExample>
+
+                            <controls:BaoBaoCodeExample Header="BaoBaoDivider">
+                                <StackPanel>
+                                    <controls:BaoBaoDivider />
+                                    <controls:BaoBaoDivider Content="Center Text" />
+                                    <controls:BaoBaoDivider HorizontalContentAlignment="Left" Content="Left Text" />
+                                    <controls:BaoBaoDivider HorizontalContentAlignment="Right" Content="Right Text" />
+                                </StackPanel>
+                            </controls:BaoBaoCodeExample>
+
+                            <controls:BaoBaoCodeExample Header="Description List">
+                                <controls:BaoBaoDescriptionList>
+                                    <controls:DescriptionItem Content="John Doe" Label="User" />
+                                    <controls:DescriptionItem Content="Developer" Label="Role" />
+                                    <controls:DescriptionItem Content="john@example.com" Label="Email" />
+                                    <controls:DescriptionItem Content="Active" Label="Status" />
+                                    <controls:DescriptionItem Content="New York, USA" Label="Location" />
+                                    <controls:DescriptionItem Content="Frontend" Label="Team" />
+                                </controls:BaoBaoDescriptionList>
+                            </controls:BaoBaoCodeExample>
+                        </controls:BaoBaoUniformGrid>
+
+                        <controls:BaoBaoCodeExample
+                            Grid.Row="1"
+                            VerticalAlignment="Stretch"
+                            Code="&lt;DataGrid ... /&gt;&#xA;&lt;controls:BaoBaoPagination TotalCount=&quot;100&quot; /&gt;"
+                            Header="DataGrid with BaoBaoPagination">
+                            <Grid Height="400">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <StackPanel Margin="0,0,0,10" Orientation="Horizontal">
+                                    <Button Content="Add New" Style="{DynamicResource BaoBaoPrimaryButton}" />
+                                    <Button Margin="10,0,0,0" Content="Refresh" />
+                                </StackPanel>
+
+                                <DataGrid
+                                    x:Name="UserDataGrid"
+                                    Grid.Row="1"
+                                    AutoGenerateColumns="False"
+                                    HeadersVisibility="Column">
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn
+                                            Width="80"
+                                            Binding="{Binding ID}"
+                                            Header="ID" />
+                                        <DataGridTextColumn
+                                            Width="200"
+                                            Binding="{Binding Name}"
+                                            Header="Name" />
+                                        <DataGridTextColumn
+                                            Width="150"
+                                            Binding="{Binding Status}"
+                                            Header="Status" />
+                                        <DataGridTextColumn
+                                            Width="*"
+                                            Binding="{Binding Date}"
+                                            Header="Joined Date" />
+                                    </DataGrid.Columns>
+                                </DataGrid>
+
+                                <controls:BaoBaoPagination
+                                    Grid.Row="2"
+                                    Margin="0,10,0,0"
+                                    HorizontalAlignment="Right"
+                                    CurrentPage="1"
+                                    PageSize="10"
+                                    TotalCount="100" />
+                            </Grid>
+                        </controls:BaoBaoCodeExample>
+                    </Grid>
+                </ScrollViewer>
+            </TabItem>
+
+            <!--  Tab: Feedback  -->
+            <TabItem Header="Feedback">
+                <ScrollViewer Padding="0,20,20,20" VerticalScrollBarVisibility="Auto">
+                    <controls:BaoBaoUniformGrid>
+                        <controls:BaoBaoCodeExample Code="Message.Info(&quot;Info message&quot;);&#xA;Message.Success(&quot;Success message&quot;);&#xA;Message.Warning(&quot;Warning message&quot;);&#xA;Message.Error(&quot;Error message&quot;);" Header="Message (Toast)">
+                            <WrapPanel>
+                                <Button
+                                    Margin="0,0,10,10"
+                                    Click="BtnInfo_Click"
+                                    Content="Info" />
+                                <Button
+                                    Margin="0,0,10,10"
+                                    Click="BtnSuccess_Click"
+                                    Content="Success" />
+                                <Button
+                                    Margin="0,0,10,10"
+                                    Click="BtnWarn_Click"
+                                    Content="Warning" />
+                                <Button
+                                    Margin="0,0,10,10"
+                                    Click="BtnError_Click"
+                                    Content="Error" />
+                            </WrapPanel>
+                        </controls:BaoBaoCodeExample>
+
+                        <controls:BaoBaoCodeExample Code="&lt;controls:BaoBaoCircleProgressBar Value=&quot;75&quot; /&gt;" Header="Circle Progress">
+                            <WrapPanel>
+                                <controls:BaoBaoCircleProgressBar Margin="0,0,20,0" Value="25" />
+                                <controls:BaoBaoCircleProgressBar
+                                    Width="80"
+                                    Height="80"
+                                    Margin="0,0,20,0"
+                                    IsPie="True"
+                                    StrokeThickness="0"
+                                    Value="75" />
+                                <controls:BaoBaoCircleProgressBar
+                                    Width="60"
+                                    Height="60"
+                                    Foreground="#18a058"
+                                    StrokeThickness="4"
+                                    Value="100" />
+                            </WrapPanel>
+                        </controls:BaoBaoCodeExample>
+
+                        <controls:BaoBaoCodeExample Code="&lt;controls:BaoBaoSkeleton Width=&quot;200&quot; /&gt;" Header="BaoBaoSkeleton (BaoBaoLoading)">
+                            <StackPanel>
+                                <controls:BaoBaoSkeleton
+                                    Width="100"
+                                    Height="30"
+                                    Margin="0,0,0,10" />
+                                <controls:BaoBaoSkeleton Width="300" Margin="0,0,0,10" />
+                                <controls:BaoBaoSkeleton Width="250" Margin="0,0,0,10" />
+                                <StackPanel Orientation="Horizontal">
+                                    <controls:BaoBaoSkeleton
+                                        Width="50"
+                                        Height="50"
+                                        Margin="0,0,10,0"
+                                        CornerRadius="25" />
+                                    <StackPanel VerticalAlignment="Center">
+                                        <controls:BaoBaoSkeleton Width="120" Margin="0,0,0,5" />
+                                        <controls:BaoBaoSkeleton Width="80" Height="12" />
+                                    </StackPanel>
+                                </StackPanel>
+                            </StackPanel>
+                        </controls:BaoBaoCodeExample>
+
+                        <controls:BaoBaoCodeExample Code="&lt;controls:BaoBaoCarousel AutoPlay=&quot;True&quot;&gt;...&lt;/controls:BaoBaoCarousel&gt;" Header="BaoBaoCarousel (Banner)">
+                            <controls:BaoBaoCarousel Height="200" AutoPlay="True">
+                                <controls:BaoBaoCarouselItem>
+                                    <Grid Background="#18a058">
+                                        <TextBlock
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            FontSize="32"
+                                            Foreground="White"
+                                            Text="Slide 1" />
+                                    </Grid>
+                                </controls:BaoBaoCarouselItem>
+                                <controls:BaoBaoCarouselItem>
+                                    <Grid Background="#2080f0">
+                                        <TextBlock
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            FontSize="32"
+                                            Foreground="White"
+                                            Text="Slide 2" />
+                                    </Grid>
+                                </controls:BaoBaoCarouselItem>
+                                <controls:BaoBaoCarouselItem>
+                                    <Grid Background="#f0a020">
+                                        <TextBlock
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            FontSize="32"
+                                            Foreground="White"
+                                            Text="Slide 3" />
+                                    </Grid>
+                                </controls:BaoBaoCarouselItem>
+                            </controls:BaoBaoCarousel>
+                        </controls:BaoBaoCodeExample>
+
+                        <controls:BaoBaoCodeExample Code="var result = BaoBaoMessageBox.Show(&quot;Are you sure?&quot;, &quot;Confirm&quot;, MessageBoxButton.YesNo);" Header="Dialog (Modal)">
+                            <Button Click="BtnDialog_Click" Content="Open Confirmation Dialog" />
+                        </controls:BaoBaoCodeExample>
+
+                        <controls:BaoBaoCodeExample Code="// Simple&#xA;await StartBaoBaoLoading(async () =&gt; await Task.Delay(2000), &quot;BaoBaoLoading...&quot;);&#xA;&#xA;// Cancellable&#xA;await StartBaoBaoLoading(async (ct) =&gt; await Task.Delay(5000, ct), &quot;Processing...&quot;, true);" Header="BaoBaoLoading (Async Tasks)">
+                            <WrapPanel>
+                                <Button
+                                    Margin="0,0,10,10"
+                                    Click="BtnLoadSimple_Click"
+                                    Content="Simple (2s)" />
+                                <Button
+                                    Margin="0,0,10,10"
+                                    Click="BtnLoadCancel_Click"
+                                    Content="Cancellable (5s)" />
+                                <Button
+                                    Margin="0,0,10,10"
+                                    Click="BtnLoadResult_Click"
+                                    Content="With Result" />
+                            </WrapPanel>
+                        </controls:BaoBaoCodeExample>
+
+                        <controls:BaoBaoCodeExample Code="&lt;controls:BaoBaoStepBar StepIndex=&quot;1&quot;&gt;&#xA;    &lt;controls:BaoBaoStepBarItem Content=&quot;Step 1&quot; /&gt;&#xA;    &lt;controls:BaoBaoStepBarItem Content=&quot;Step 2&quot; /&gt;&#xA;    &lt;controls:BaoBaoStepBarItem Content=&quot;Step 3&quot; /&gt;&#xA;&lt;/controls:BaoBaoStepBar&gt;" Header="Step Bar">
+                            <controls:BaoBaoStepBar StepIndex="1">
+                                <controls:BaoBaoStepBarItem Content="Step 1" />
+                                <controls:BaoBaoStepBarItem Content="Step 2" />
+                                <controls:BaoBaoStepBarItem Content="Step 3" />
+                            </controls:BaoBaoStepBar>
+                        </controls:BaoBaoCodeExample>
+                    </controls:BaoBaoUniformGrid>
+                </ScrollViewer>
+            </TabItem>
+
+            <!--  Tab: Advanced (New)  -->
+            <TabItem Header="Advanced">
+                <ScrollViewer Padding="0,20,20,20" VerticalScrollBarVisibility="Auto">
+                    <controls:BaoBaoUniformGrid>
+                        <!--  BaoBaoTimeline  -->
+                        <controls:BaoBaoCodeExample Code="&lt;controls:BaoBaoTimeline&gt;&#xA;    &lt;controls:BaoBaoTimelineItem Header=&quot;2023-10-01&quot; Content=&quot;Start&quot; Color=&quot;Green&quot;/&gt;&#xA;    &lt;controls:BaoBaoTimelineItem Content=&quot;Process&quot; LineType=&quot;Dashed&quot;/&gt;&#xA;&lt;/controls:BaoBaoTimeline&gt;" Header="BaoBaoTimeline">
+                            <controls:BaoBaoTimeline>
+                                <controls:BaoBaoTimelineItem
+                                    Content="Project Started"
+                                    Header="2023-10-01 09:00"
+                                    Color="#18a058" />
+                                <controls:BaoBaoTimelineItem
+                                    Content="Design Review"
+                                    Header="2023-10-02"
+                                    LineType="Dashed" />
+                                <controls:BaoBaoTimelineItem Content="Development" Header="2023-10-05" />
+                                <controls:BaoBaoTimelineItem
+                                    Content="Testing"
+                                    Header="2023-10-10"
+                                    Color="#f0a020" />
+                                <controls:BaoBaoTimelineItem
+                                    Content="Release"
+                                    Header="2023-10-20"
+                                    Color="#d03050" />
+                            </controls:BaoBaoTimeline>
+                        </controls:BaoBaoCodeExample>
+
+                        <!--  BaoBaoRangeSlider  -->
+                        <controls:BaoBaoCodeExample Code="&lt;controls:BaoBaoRangeSlider Minimum=&quot;0&quot; Maximum=&quot;100&quot; LowerValue=&quot;20&quot; UpperValue=&quot;80&quot;/&gt;" Header="Range Slider">
+                            <StackPanel>
+                                <controls:BaoBaoRangeSlider
+                                    Width="300"
+                                    Margin="0,0,0,20"
+                                    HorizontalAlignment="Left"
+                                    LowerValue="20"
+                                    Maximum="100"
+                                    Minimum="0"
+                                    UpperValue="80" />
+                                <controls:BaoBaoRangeSlider
+                                    Width="300"
+                                    HorizontalAlignment="Left"
+                                    IsSnapToTickEnabled="True"
+                                    LowerValue="10"
+                                    Maximum="100"
+                                    Minimum="0"
+                                    TickFrequency="10"
+                                    UpperValue="40" />
+                                <TextBlock
+                                    Margin="0,5,0,0"
+                                    FontSize="12"
+                                    Foreground="{DynamicResource BaoBao_Text_Secondary_Brush}"
+                                    Text="With Tick Snapping (10)" />
+                            </StackPanel>
+                        </controls:BaoBaoCodeExample>
+
+                        <!--  BaoBaoPopover  -->
+                        <controls:BaoBaoCodeExample Code="&lt;controls:BaoBaoPopover Title=&quot;Title&quot;&gt;&#xA;   &lt;Button Content=&quot;Click Me&quot;/&gt;&#xA;   &lt;controls:BaoBaoPopover.PopupContent&gt;...&lt;/controls:BaoBaoPopover.PopupContent&gt;&#xA;&lt;/controls:BaoBaoPopover&gt;" Header="BaoBaoPopover">
+                            <WrapPanel>
+                                <controls:BaoBaoPopover Title="User Details" Margin="0,0,20,0">
+                                    <Button Content="Click Me (BaoBaoPopover)" Style="{DynamicResource BaoBaoPrimaryButton}" />
+                                    <controls:BaoBaoPopover.PopupContent>
+                                        <StackPanel Width="200">
+                                            <TextBlock Margin="0,0,0,5" Text="Name: John Doe" />
+                                            <TextBlock Margin="0,0,0,10" Text="Role: Administrator" />
+                                            <Button
+                                                Width="100"
+                                                HorizontalAlignment="Left"
+                                                Content="View Profile" />
+                                        </StackPanel>
+                                    </controls:BaoBaoPopover.PopupContent>
+                                </controls:BaoBaoPopover>
+
+                                <controls:BaoBaoPopover
+                                    Title="Hover Me"
+                                    Placement="Right"
+                                    Trigger="Hover">
+                                    <Button Content="Hover Me" />
+                                    <controls:BaoBaoPopover.PopupContent>
+                                        <TextBlock Text="This appears on hover!" />
+                                    </controls:BaoBaoPopover.PopupContent>
+                                </controls:BaoBaoPopover>
+                            </WrapPanel>
+                        </controls:BaoBaoCodeExample>
+
+                        <!--  BaoBaoEmpty  -->
+                        <controls:BaoBaoCodeExample Code="&lt;controls:BaoBaoEmpty Description=&quot;No Data&quot;&gt;&#xA;    &lt;Button Content=&quot;Refresh&quot;/&gt;&#xA;&lt;/controls:BaoBaoEmpty&gt;" Header="BaoBaoEmpty State">
+                            <Border
+                                Padding="20"
+                                BorderBrush="{DynamicResource BaoBao_Border_Brush}"
+                                BorderThickness="1"
+                                CornerRadius="4">
+                                <controls:BaoBaoEmpty Description="No Data Found">
+                                    <Button
+                                        Margin="0,10,0,0"
+                                        Content="Create New"
+                                        Style="{DynamicResource BaoBaoPrimaryButton}" />
+                                </controls:BaoBaoEmpty>
+                            </Border>
+                        </controls:BaoBaoCodeExample>
+
+                    </controls:BaoBaoUniformGrid>
+                </ScrollViewer>
+            </TabItem>
+
+            <!--  Tab: Layout  -->
+            <TabItem Header="Layout">
+                <ScrollViewer Padding="0,20,20,20" VerticalScrollBarVisibility="Auto">
+                    <controls:BaoBaoUniformGrid>
+                        <controls:BaoBaoCodeExample Header="Layout">
+                            <StackPanel>
+                                <controls:BaoBaoCodeExample Code="&lt;controls:BaoBaocontrols:BaoBaoUniformGrid Rows=&quot;2&quot; Columns=&quot;3&quot; RowSpacing=&quot;10&quot; ColumnSpacing=&quot;10&quot;&gt;...&lt;/controls:BaoBaocontrols:BaoBaoUniformGrid&gt;" Header="controls:BaoBaoUniformGrid with Spacing">
+                                    <controls:BaoBaoUniformGrid
+                                        ColumnSpacing="10"
+                                        Columns="3"
+                                        RowSpacing="10"
+                                        Rows="2">
+                                        <Button Content="1" />
+                                        <Button Content="2" />
+                                        <Button Content="3" />
+                                        <Button Content="4" />
+                                        <Button Content="5" />
+                                        <Button Content="6" />
+                                    </controls:BaoBaoUniformGrid>
+                                </controls:BaoBaoCodeExample>
+
+                                <controls:BaoBaoCodeExample Code="&lt;GroupBox Header=&quot;Header&quot;&gt;...&lt;/GroupBox&gt;&#xA;&lt;Expander Header=&quot;Header&quot;&gt;...&lt;/Expander&gt;" Header="Containers">
+                                    <StackPanel>
+                                        <GroupBox Margin="0,0,0,10" Header="GroupBox Example">
+                                            <TextBlock Text="Content goes here." />
+                                        </GroupBox>
+                                        <Expander Header="Expander Example">
+                                            <TextBlock Margin="10" Text="Hidden content revealed." />
+                                        </Expander>
+                                    </StackPanel>
+                                </controls:BaoBaoCodeExample>
+                            </StackPanel>
+                        </controls:BaoBaoCodeExample>
+
+                        <controls:BaoBaoCodeExample Code="&lt;TabControl&gt;...&lt;/TabControl&gt;" Header="TabControl">
+                            <TabControl Height="150">
+                                <TabItem Header="Tab 1">
+                                    <Grid Margin="{DynamicResource Margin_Large}">
+                                        <TextBlock Text="Content 1" />
+                                    </Grid>
+                                </TabItem>
+                                <TabItem Header="Tab 2">
+                                    <Grid Margin="{DynamicResource Margin_Large}">
+                                        <TextBlock Text="Content 2" />
+                                    </Grid>
+                                </TabItem>
+                            </TabControl>
+                        </controls:BaoBaoCodeExample>
+                    </controls:BaoBaoUniformGrid>
+                </ScrollViewer>
+            </TabItem>
+
+            <!--  Demo: Login  -->
+            <TabItem Header="Demo: Login">
+                <Grid>
+                    <Grid.Background>
+                        <ImageBrush
+                            ImageSource="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=2070&amp;q=80"
+                            Opacity="0.2"
+                            Stretch="UniformToFill" />
+                    </Grid.Background>
+                    <Border
+                        Width="400"
+                        Padding="40"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Background="{DynamicResource BaoBao_Surface_Brush}"
+                        BorderBrush="{DynamicResource BaoBao_Border_Brush}"
+                        BorderThickness="1"
+                        CornerRadius="{DynamicResource Radius_Large}">
+                        <Border.Effect>
+                            <DropShadowEffect
+                                BlurRadius="20"
+                                Direction="270"
+                                Opacity="0.1"
+                                ShadowDepth="4"
+                                Color="Black" />
+                        </Border.Effect>
+                        <StackPanel>
+                            <controls:BaoBaoAvatar
+                                Width="80"
+                                Height="80"
+                                Margin="0,0,0,20"
+                                HorizontalAlignment="Center"
+                                Background="{DynamicResource BaoBao_Primary_Brush}"
+                                Foreground="White">
+                                <controls:BaoBaoAvatar.Icon>
+                                    <iconPacks:PackIconMaterial
+                                        Width="40"
+                                        Height="40"
+                                        Kind="Account" />
+                                </controls:BaoBaoAvatar.Icon>
+                            </controls:BaoBaoAvatar>
+
+                            <TextBlock
+                                Margin="0,0,0,5"
+                                HorizontalAlignment="Center"
+                                FontSize="24"
+                                FontWeight="Bold"
+                                Foreground="{DynamicResource BaoBao_Text_Primary_Brush}"
+                                Text="Welcome Back" />
+                            <TextBlock
+                                Margin="0,0,0,30"
+                                HorizontalAlignment="Center"
+                                Foreground="{DynamicResource BaoBao_Text_Secondary_Brush}"
+                                Text="Please sign in to continue" />
+
+                            <TextBox
+                                Height="40"
+                                Margin="0,0,0,20"
+                                helpers:ControlAttach.Watermark="Username / Email">
+                                <helpers:ControlAttach.Icon>
+                                    <iconPacks:PackIconMaterial Foreground="{DynamicResource BaoBao_Text_Secondary_Brush}" Kind="AccountOutline" />
+                                </helpers:ControlAttach.Icon>
+                            </TextBox>
+
+                            <PasswordBox
+                                Height="40"
+                                Margin="0,0,0,20"
+                                helpers:ControlAttach.Watermark="Password"
+                                helpers:PasswordBoxAttach.ShowEyeButton="True" Cursor="">
+                                <helpers:ControlAttach.Icon>
+                                    <iconPacks:PackIconMaterial Foreground="{DynamicResource BaoBao_Text_Secondary_Brush}" Kind="LockOutline" />
+                                </helpers:ControlAttach.Icon>
+                            </PasswordBox>
+
+                            <DockPanel Margin="0,0,0,30">
+                                <CheckBox Content="Remember me" />
+                                <TextBlock
+                                    VerticalAlignment="Center"
+                                    Cursor="Hand"
+                                    DockPanel.Dock="Right"
+                                    Foreground="{DynamicResource BaoBao_Primary_Brush}"
+                                    Text="Forgot Password?"
+                                    TextDecorations="Underline" />
+                            </DockPanel>
+
+                            <Button
+                                Height="44"
+                                Margin="0,0,0,20"
+                                Content="Sign In"
+                                FontSize="16"
+                                Style="{DynamicResource BaoBaoPrimaryButton}">
+                                <Button.Effect>
+                                    <DropShadowEffect
+                                        BlurRadius="15"
+                                        Direction="270"
+                                        Opacity="0.4"
+                                        ShadowDepth="4"
+                                        Color="{StaticResource BaoBao_Color_Primary}" />
+                                </Button.Effect>
+                            </Button>
+
+                            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                                <TextBlock Foreground="{DynamicResource BaoBao_Text_Secondary_Brush}" Text="Don't have an account? " />
+                                <TextBlock
+                                    Cursor="Hand"
+                                    FontWeight="Bold"
+                                    Foreground="{DynamicResource BaoBao_Primary_Brush}"
+                                    Text="Sign Up" />
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+                </Grid>
+            </TabItem>
+
+            <!--  Demo: Music Player  -->
+            <TabItem Header="Demo: Music">
+                <Grid Background="{DynamicResource BaoBao_Background_Brush}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="250" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <!--  Sidebar  -->
+                    <Border
+                        Background="{DynamicResource BaoBao_Surface_Brush}"
+                        BorderBrush="{DynamicResource BaoBao_Border_Brush}"
+                        BorderThickness="0,0,1,0">
+                        <DockPanel Margin="0,20,0,0">
+                            <StackPanel Margin="20,0,20,20" DockPanel.Dock="Top">
+                                <TextBlock
+                                    Margin="0,0,0,10"
+                                    FontSize="12"
+                                    FontWeight="Bold"
+                                    Foreground="{DynamicResource BaoBao_Text_Secondary_Brush}"
+                                    Text="LIBRARY" />
+                                <ListBox
+                                    Background="Transparent"
+                                    BorderThickness="0"
+                                    Style="{DynamicResource BaoBaoListBox}">
+                                    <ListBoxItem Padding="10,8" Content="Recently Played" />
+                                    <ListBoxItem Padding="10,8" Content="Favorites" />
+                                    <ListBoxItem Padding="10,8" Content="Albums" />
+                                    <ListBoxItem Padding="10,8" Content="Artists" />
+                                </ListBox>
+
+                                <TextBlock
+                                    Margin="0,20,0,10"
+                                    FontSize="12"
+                                    FontWeight="Bold"
+                                    Foreground="{DynamicResource BaoBao_Text_Secondary_Brush}"
+                                    Text="PLAYLISTS" />
+                                <ListBox Background="Transparent" BorderThickness="0">
+                                    <ListBoxItem Padding="10,8" Content="Chill Vibes" />
+                                    <ListBoxItem Padding="10,8" Content="Workout Mix" />
+                                    <ListBoxItem Padding="10,8" Content="Top 50 Global" />
+                                    <ListBoxItem Padding="10,8" Content="Focus Flow" />
+                                </ListBox>
+                            </StackPanel>
+                        </DockPanel>
+                    </Border>
+
+                    <!--  Player  -->
+                    <Grid Grid.Column="1">
+                        <StackPanel
+                            Width="400"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center">
+                            <Border
+                                Width="240"
+                                Height="240"
+                                Margin="0,0,0,30"
+                                CornerRadius="12">
+                                <Border.Background>
+                                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                        <GradientStop Offset="0" Color="#FF8E2DE2" />
+                                        <GradientStop Offset="1" Color="#FF4A00E0" />
+                                    </LinearGradientBrush>
+                                </Border.Background>
+                                <iconPacks:PackIconMaterial
+                                    Width="100"
+                                    Height="100"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Foreground="White"
+                                    Kind="MusicNote"
+                                    Opacity="0.5" />
+                                <Border.Effect>
+                                    <DropShadowEffect
+                                        BlurRadius="30"
+                                        Direction="270"
+                                        Opacity="0.3"
+                                        ShadowDepth="10"
+                                        Color="#FF4A00E0" />
+                                </Border.Effect>
+                            </Border>
+
+                            <TextBlock
+                                HorizontalAlignment="Center"
+                                FontSize="28"
+                                FontWeight="Bold"
+                                Foreground="{DynamicResource BaoBao_Text_Primary_Brush}"
+                                Text="Midnight City" />
+                            <TextBlock
+                                Margin="0,8,0,30"
+                                HorizontalAlignment="Center"
+                                FontSize="16"
+                                Foreground="{DynamicResource BaoBao_Text_Secondary_Brush}"
+                                Text="M83 - Hurry Up, We're Dreaming" />
+
+                            <Grid Margin="0,0,0,10">
+                                <TextBlock
+                                    HorizontalAlignment="Left"
+                                    Foreground="{DynamicResource BaoBao_Text_Secondary_Brush}"
+                                    Text="1:45" />
+                                <TextBlock
+                                    HorizontalAlignment="Right"
+                                    Foreground="{DynamicResource BaoBao_Text_Secondary_Brush}"
+                                    Text="4:03" />
+                            </Grid>
+                            <Slider
+                                Margin="0,0,0,30"
+                                Maximum="100"
+                                Style="{DynamicResource BaoBaoSlider}"
+                                Value="35" />
+
+                            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                                <Button
+                                    Width="40"
+                                    Height="40"
+                                    Margin="0,0,30,0"
+                                    Style="{DynamicResource BaoBaoIconButtonStyle}">
+                                    <iconPacks:PackIconMaterial
+                                        Width="20"
+                                        Height="20"
+                                        Foreground="{DynamicResource BaoBao_Text_Secondary_Brush}"
+                                        Kind="ShuffleVariant" />
+                                </Button>
+                                <Button
+                                    Width="50"
+                                    Height="50"
+                                    Margin="0,0,20,0"
+                                    Style="{DynamicResource BaoBaoIconButtonStyle}">
+                                    <iconPacks:PackIconMaterial
+                                        Width="28"
+                                        Height="28"
+                                        Foreground="{DynamicResource BaoBao_Text_Primary_Brush}"
+                                        Kind="SkipPrevious" />
+                                </Button>
+                                <Button
+                                    Width="70"
+                                    Height="70"
+                                    Margin="0,0,20,0"
+                                    helpers:ControlAttach.CornerRadius="35"
+                                    Style="{DynamicResource BaoBaoPrimaryButton}">
+                                    <iconPacks:PackIconMaterial
+                                        Width="36"
+                                        Height="36"
+                                        Kind="Play" />
+                                </Button>
+                                <Button
+                                    Width="50"
+                                    Height="50"
+                                    Margin="0,0,30,0"
+                                    Style="{DynamicResource BaoBaoIconButtonStyle}">
+                                    <iconPacks:PackIconMaterial
+                                        Width="28"
+                                        Height="28"
+                                        Foreground="{DynamicResource BaoBao_Text_Primary_Brush}"
+                                        Kind="SkipNext" />
+                                </Button>
+                                <Button
+                                    Width="40"
+                                    Height="40"
+                                    Style="{DynamicResource BaoBaoIconButtonStyle}">
+                                    <iconPacks:PackIconMaterial
+                                        Width="20"
+                                        Height="20"
+                                        Foreground="{DynamicResource BaoBao_Text_Secondary_Brush}"
+                                        Kind="Repeat" />
+                                </Button>
+                            </StackPanel>
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+            </TabItem>
+
+            <!--  Demo: Dashboard  -->
+            <TabItem Header="Demo: Dashboard">
+                <ScrollViewer>
+                    <StackPanel Margin="{DynamicResource Spacing_Large}">
+                        <StackPanel Margin="0,0,0,20" Orientation="Horizontal">
+                            <StackPanel>
+                                <TextBlock
+                                    FontSize="28"
+                                    FontWeight="Bold"
+                                    Foreground="{DynamicResource BaoBao_Text_Primary_Brush}"
+                                    Text="Dashboard" />
+                                <TextBlock Foreground="{DynamicResource BaoBao_Text_Secondary_Brush}" Text="Overview of your business performance" />
+                            </StackPanel>
+                            <StackPanel
+                                Margin="{DynamicResource Margin_Default}"
+                                VerticalAlignment="Bottom"
+                                DockPanel.Dock="Right"
+                                Orientation="Horizontal">
+                                <controls:BaoBaoDateTimePicker
+                                    Width="200"
+                                    Margin="0,0,10,0"
+                                    SelectedDate="{x:Static sys:DateTime.Now}" />
+                                <Button Content="Export Report">
+                                    <helpers:ControlAttach.Icon>
+                                        <iconPacks:PackIconMaterial Kind="Download" />
+                                    </helpers:ControlAttach.Icon>
+                                </Button>
+                            </StackPanel>
+                        </StackPanel>
+
+                        <!--  Stats Cards  -->
+                        <controls:BaoBaoUniformGrid
+                            Margin="0,0,0,30"
+                            ColumnSpacing="20"
+                            Columns="4"
+                            RowSpacing="20">
+                            <Border Padding="20" Style="{DynamicResource BaoBaoCard}">
+                                <controls:BaoBaoStatistic
+                                    Foreground="#18a058"
+                                    Label="Total Revenue"
+                                    Prefix="$"
+                                    Value="45,231">
+                                    <controls:BaoBaoStatistic.Icon>
+                                        <iconPacks:PackIconMaterial Foreground="#18a058" Kind="CurrencyUsd" />
+                                    </controls:BaoBaoStatistic.Icon>
+                                </controls:BaoBaoStatistic>
+                            </Border>
+                            <Border Padding="20" Style="{DynamicResource BaoBaoCard}">
+                                <controls:BaoBaoStatistic
+                                    Foreground="#2080f0"
+                                    Label="Active Users"
+                                    Value="2,405">
+                                    <controls:BaoBaoStatistic.Icon>
+                                        <iconPacks:PackIconMaterial Foreground="#2080f0" Kind="AccountGroup" />
+                                    </controls:BaoBaoStatistic.Icon>
+                                </controls:BaoBaoStatistic>
+                            </Border>
+                            <Border Padding="20" Style="{DynamicResource BaoBaoCard}">
+                                <controls:BaoBaoStatistic
+                                    Foreground="#f0a020"
+                                    Label="New Orders"
+                                    Value="125">
+                                    <controls:BaoBaoStatistic.Icon>
+                                        <iconPacks:PackIconMaterial Foreground="#f0a020" Kind="Shopping" />
+                                    </controls:BaoBaoStatistic.Icon>
+                                </controls:BaoBaoStatistic>
+                            </Border>
+                            <Border Padding="20" Style="{DynamicResource BaoBaoCard}">
+                                <controls:BaoBaoStatistic
+                                    Foreground="#d03050"
+                                    Label="Conversion Rate"
+                                    Suffix="%"
+                                    Value="3.2">
+                                    <controls:BaoBaoStatistic.Icon>
+                                        <iconPacks:PackIconMaterial Foreground="#d03050" Kind="ChartLine" />
+                                    </controls:BaoBaoStatistic.Icon>
+                                </controls:BaoBaoStatistic>
+                            </Border>
+                        </controls:BaoBaoUniformGrid>
+
+                        <Grid Height="350" Margin="0,0,0,30">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="1*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Border
+                                Margin="0,0,20,0"
+                                Padding="20"
+                                Style="{DynamicResource BaoBaoCard}">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+                                    <TextBlock
+                                        FontSize="16"
+                                        FontWeight="Bold"
+                                        Text="Sales Analytics" />
+
+                                    <!--  Mock Chart  -->
+                                    <controls:BaoBaoUniformGrid
+                                        Grid.Row="1"
+                                        Height="200"
+                                        VerticalAlignment="Bottom"
+                                        ColumnSpacing="10"
+                                        Columns="12">
+                                        <ProgressBar
+                                            Foreground="{DynamicResource BaoBao_Primary_Brush}"
+                                            Opacity="0.5"
+                                            Orientation="Vertical"
+                                            ToolTip="Jan"
+                                            Value="30" />
+                                        <ProgressBar
+                                            Foreground="{DynamicResource BaoBao_Primary_Brush}"
+                                            Opacity="0.6"
+                                            Orientation="Vertical"
+                                            ToolTip="Feb"
+                                            Value="45" />
+                                        <ProgressBar
+                                            Foreground="{DynamicResource BaoBao_Primary_Brush}"
+                                            Opacity="0.5"
+                                            Orientation="Vertical"
+                                            ToolTip="Mar"
+                                            Value="35" />
+                                        <ProgressBar
+                                            Foreground="{DynamicResource BaoBao_Primary_Brush}"
+                                            Opacity="0.8"
+                                            Orientation="Vertical"
+                                            ToolTip="Apr"
+                                            Value="60" />
+                                        <ProgressBar
+                                            Foreground="{DynamicResource BaoBao_Primary_Brush}"
+                                            Opacity="0.7"
+                                            Orientation="Vertical"
+                                            ToolTip="May"
+                                            Value="50" />
+                                        <ProgressBar
+                                            Foreground="{DynamicResource BaoBao_Primary_Brush}"
+                                            Opacity="0.9"
+                                            Orientation="Vertical"
+                                            ToolTip="Jun"
+                                            Value="75" />
+                                        <ProgressBar
+                                            Foreground="{DynamicResource BaoBao_Primary_Brush}"
+                                            Orientation="Vertical"
+                                            ToolTip="Jul"
+                                            Value="80" />
+                                        <ProgressBar
+                                            Foreground="{DynamicResource BaoBao_Primary_Brush}"
+                                            Opacity="0.8"
+                                            Orientation="Vertical"
+                                            ToolTip="Aug"
+                                            Value="70" />
+                                        <ProgressBar
+                                            Foreground="{DynamicResource BaoBao_Primary_Brush}"
+                                            Opacity="0.7"
+                                            Orientation="Vertical"
+                                            ToolTip="Sep"
+                                            Value="65" />
+                                        <ProgressBar
+                                            Foreground="{DynamicResource BaoBao_Primary_Brush}"
+                                            Opacity="0.6"
+                                            Orientation="Vertical"
+                                            ToolTip="Oct"
+                                            Value="55" />
+                                        <ProgressBar
+                                            Foreground="{DynamicResource BaoBao_Primary_Brush}"
+                                            Opacity="0.9"
+                                            Orientation="Vertical"
+                                            ToolTip="Nov"
+                                            Value="85" />
+                                        <ProgressBar
+                                            Foreground="{DynamicResource BaoBao_Primary_Brush}"
+                                            Orientation="Vertical"
+                                            ToolTip="Dec"
+                                            Value="90" />
+                                    </controls:BaoBaoUniformGrid>
+                                </Grid>
+                            </Border>
+
+                            <Border
+                                Grid.Column="1"
+                                Padding="20"
+                                Style="{DynamicResource BaoBaoCard}">
+                                <StackPanel>
+                                    <TextBlock
+                                        Margin="0,0,0,20"
+                                        FontSize="16"
+                                        FontWeight="Bold"
+                                        Text="Traffic Sources" />
+
+                                    <Grid Margin="0,0,0,15">
+                                        <TextBlock VerticalAlignment="Top" Text="Direct" />
+                                        <TextBlock
+                                            HorizontalAlignment="Right"
+                                            Foreground="{DynamicResource BaoBao_Text_Secondary_Brush}"
+                                            Text="45%" />
+                                    </Grid>
+                                    <ProgressBar
+                                        Height="8"
+                                        Margin="0,0,0,20"
+                                        Value="45" />
+
+                                    <Grid Margin="0,0,0,15">
+                                        <TextBlock VerticalAlignment="Top" Text="Social Media" />
+                                        <TextBlock
+                                            HorizontalAlignment="Right"
+                                            Foreground="{DynamicResource BaoBao_Text_Secondary_Brush}"
+                                            Text="25%" />
+                                    </Grid>
+                                    <ProgressBar
+                                        Height="8"
+                                        Margin="0,0,0,20"
+                                        Foreground="#2080f0"
+                                        Value="25" />
+
+                                    <Grid Margin="0,0,0,15">
+                                        <TextBlock VerticalAlignment="Top" Text="Referrals" />
+                                        <TextBlock
+                                            HorizontalAlignment="Right"
+                                            Foreground="{DynamicResource BaoBao_Text_Secondary_Brush}"
+                                            Text="20%" />
+                                    </Grid>
+                                    <ProgressBar
+                                        Height="8"
+                                        Margin="0,0,0,20"
+                                        Foreground="#f0a020"
+                                        Value="20" />
+
+                                    <Grid Margin="0,0,0,15">
+                                        <TextBlock VerticalAlignment="Top" Text="Organic Search" />
+                                        <TextBlock
+                                            HorizontalAlignment="Right"
+                                            Foreground="{DynamicResource BaoBao_Text_Secondary_Brush}"
+                                            Text="10%" />
+                                    </Grid>
+                                    <ProgressBar
+                                        Height="8"
+                                        Margin="0,0,0,20"
+                                        Foreground="#d03050"
+                                        Value="10" />
+                                </StackPanel>
+                            </Border>
+                        </Grid>
+
+                        <!--  Pie & Ring Charts  -->
+                        <Grid Height="300" Margin="0,0,0,30">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Border
+                                Margin="0,0,20,0"
+                                Padding="20"
+                                Style="{DynamicResource BaoBaoCard}">
+                                <DockPanel>
+                                    <TextBlock
+                                        Margin="0,0,0,20"
+                                        DockPanel.Dock="Top"
+                                        FontSize="16"
+                                        FontWeight="Bold"
+                                        Text="Device Distribution (Pie)" />
+                                    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <!--  Layered Pies for visual effect (simple overlapping)  -->
+                                        <!--  Outer Pie (Background/Base)  -->
+                                        <controls:BaoBaoCircleProgressBar
+                                            Width="200"
+                                            Height="200"
+                                            Background="Transparent"
+                                            Foreground="#18a058"
+                                            IsPie="True"
+                                            ToolTip="Desktop: 65%"
+                                            Value="100" />
+                                        <!--  100% Base  -->
+
+                                        <!--  Middle Pie  -->
+                                        <controls:BaoBaoCircleProgressBar
+                                            Width="200"
+                                            Height="200"
+                                            Foreground="#2080f0"
+                                            IsPie="True"
+                                            RenderTransformOrigin="0.5,0.5"
+                                            ToolTip="Mobile: 35%"
+                                            Value="35">
+                                            <controls:BaoBaoCircleProgressBar.RenderTransform>
+                                                <RotateTransform Angle="0" />
+                                                <!--  Start from top  -->
+                                            </controls:BaoBaoCircleProgressBar.RenderTransform>
+                                        </controls:BaoBaoCircleProgressBar>
+
+                                        <!--  Inner Pie (Small segment)  -->
+                                        <controls:BaoBaoCircleProgressBar
+                                            Width="200"
+                                            Height="200"
+                                            Foreground="#f0a020"
+                                            IsPie="True"
+                                            RenderTransformOrigin="0.5,0.5"
+                                            ToolTip="Tablet: 10%"
+                                            Value="10">
+                                            <controls:BaoBaoCircleProgressBar.RenderTransform>
+                                                <RotateTransform Angle="126" />
+                                                <!--  Offset: 35% * 360 = 126 deg  -->
+                                            </controls:BaoBaoCircleProgressBar.RenderTransform>
+                                        </controls:BaoBaoCircleProgressBar>
+
+                                        <!--  Overlay for Donut Hole if needed, or Legend on side  -->
+                                    </Grid>
+
+                                    <!--  Legend  -->
+                                    <StackPanel Margin="20,0,0,0" VerticalAlignment="Center">
+                                        <StackPanel Margin="0,0,0,5" Orientation="Horizontal">
+                                            <Rectangle
+                                                Width="12"
+                                                Height="12"
+                                                Margin="0,0,8,0"
+                                                Fill="#18a058"
+                                                RadiusX="2"
+                                                RadiusY="2" />
+                                            <TextBlock Foreground="{DynamicResource BaoBao_Text_Secondary_Brush}" Text="Desktop (65%)" />
+                                        </StackPanel>
+                                        <StackPanel Margin="0,0,0,5" Orientation="Horizontal">
+                                            <Rectangle
+                                                Width="12"
+                                                Height="12"
+                                                Margin="0,0,8,0"
+                                                Fill="#2080f0"
+                                                RadiusX="2"
+                                                RadiusY="2" />
+                                            <TextBlock Foreground="{DynamicResource BaoBao_Text_Secondary_Brush}" Text="Mobile (25%)" />
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Rectangle
+                                                Width="12"
+                                                Height="12"
+                                                Margin="0,0,8,0"
+                                                Fill="#f0a020"
+                                                RadiusX="2"
+                                                RadiusY="2" />
+                                            <TextBlock Foreground="{DynamicResource BaoBao_Text_Secondary_Brush}" Text="Tablet (10%)" />
+                                        </StackPanel>
+                                    </StackPanel>
+                                </DockPanel>
+                            </Border>
+
+                            <Border
+                                Grid.Column="1"
+                                Padding="20"
+                                Style="{DynamicResource BaoBaoCard}">
+                                <DockPanel>
+                                    <TextBlock
+                                        Margin="0,0,0,20"
+                                        DockPanel.Dock="Top"
+                                        FontSize="16"
+                                        FontWeight="Bold"
+                                        Text="Storage Usage (Ring)" />
+                                    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <!--  Concentric Rings with different sizes  -->
+                                        <controls:BaoBaoCircleProgressBar
+                                            Width="200"
+                                            Height="200"
+                                            Foreground="#d03050"
+                                            StrokeThickness="10"
+                                            ToolTip="System: 85%"
+                                            Value="85" />
+                                        <controls:BaoBaoCircleProgressBar
+                                            Width="160"
+                                            Height="160"
+                                            Foreground="#f0a020"
+                                            StrokeThickness="10"
+                                            ToolTip="Media: 60%"
+                                            Value="60" />
+                                        <controls:BaoBaoCircleProgressBar
+                                            Width="120"
+                                            Height="120"
+                                            Foreground="#2080f0"
+                                            StrokeThickness="10"
+                                            ToolTip="Docs: 40%"
+                                            Value="40" />
+
+                                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                            <TextBlock
+                                                HorizontalAlignment="Center"
+                                                Foreground="{DynamicResource BaoBao_Text_Secondary_Brush}"
+                                                Text="Total" />
+                                            <TextBlock
+                                                HorizontalAlignment="Center"
+                                                FontSize="24"
+                                                FontWeight="Bold"
+                                                Foreground="{DynamicResource BaoBao_Text_Primary_Brush}"
+                                                Text="85%" />
+                                        </StackPanel>
+                                    </Grid>
+
+                                    <!--  Legend on right  -->
+                                    <StackPanel Margin="20,0,0,0" VerticalAlignment="Center">
+                                        <StackPanel Margin="0,0,0,5" Orientation="Horizontal">
+                                            <Rectangle
+                                                Width="12"
+                                                Height="12"
+                                                Margin="0,0,8,0"
+                                                Fill="#d03050"
+                                                RadiusX="2"
+                                                RadiusY="2" />
+                                            <TextBlock Foreground="{DynamicResource BaoBao_Text_Secondary_Brush}" Text="System" />
+                                        </StackPanel>
+                                        <StackPanel Margin="0,0,0,5" Orientation="Horizontal">
+                                            <Rectangle
+                                                Width="12"
+                                                Height="12"
+                                                Margin="0,0,8,0"
+                                                Fill="#f0a020"
+                                                RadiusX="2"
+                                                RadiusY="2" />
+                                            <TextBlock Foreground="{DynamicResource BaoBao_Text_Secondary_Brush}" Text="Media" />
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Rectangle
+                                                Width="12"
+                                                Height="12"
+                                                Margin="0,0,8,0"
+                                                Fill="#2080f0"
+                                                RadiusX="2"
+                                                RadiusY="2" />
+                                            <TextBlock Foreground="{DynamicResource BaoBao_Text_Secondary_Brush}" Text="Docs" />
+                                        </StackPanel>
+                                    </StackPanel>
+                                </DockPanel>
+                            </Border>
+                        </Grid>
+
+                        <!--  Recent Transactions  -->
+                        <Border Padding="0" Style="{DynamicResource BaoBaoCard}">
+                            <DockPanel>
+                                <TextBlock
+                                    Margin="20,20,20,10"
+                                    DockPanel.Dock="Top"
+                                    FontSize="16"
+                                    FontWeight="Bold"
+                                    Text="Recent Transactions" />
+                                <DataGrid
+                                    x:Name="DashboardDataGrid"
+                                    Margin="0,10,0,0"
+                                    AutoGenerateColumns="False"
+                                    BorderThickness="0"
+                                    HeadersVisibility="Column">
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn
+                                            Width="120"
+                                            Binding="{Binding ID}"
+                                            Header="Transaction ID" />
+                                        <DataGridTextColumn
+                                            Width="*"
+                                            Binding="{Binding Name}"
+                                            Header="Customer" />
+                                        <DataGridTextColumn
+                                            Width="120"
+                                            Binding="{Binding Status}"
+                                            Header="Status" />
+                                        <DataGridTextColumn
+                                            Width="150"
+                                            Binding="{Binding Date}"
+                                            Header="Date" />
+                                    </DataGrid.Columns>
+                                </DataGrid>
+                            </DockPanel>
+                        </Border>
+                    </StackPanel>
+                </ScrollViewer>
+            </TabItem>
+
+            <!--  Demo: Settings  -->
+            <TabItem Header="Demo: Settings">
+                <Grid Background="{DynamicResource BaoBao_Background_Brush}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="220" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Border
+                        Background="{DynamicResource BaoBao_Surface_Brush}"
+                        BorderBrush="{DynamicResource BaoBao_Border_Brush}"
+                        BorderThickness="0,0,1,0">
+                        <StackPanel Margin="0,20,0,0">
+                            <TextBlock
+                                Margin="20,0,0,10"
+                                FontSize="12"
+                                FontWeight="Bold"
+                                Foreground="{DynamicResource BaoBao_Text_Secondary_Brush}"
+                                Text="SETTINGS" />
+                            <ListBox
+                                Background="Transparent"
+                                BorderThickness="0"
+                                SelectedIndex="0"
+                                Style="{DynamicResource BaoBaoListBox}">
+                                <ListBoxItem Padding="20,10" Content="General" />
+                                <ListBoxItem Padding="20,10" Content="Account" />
+                                <ListBoxItem Padding="20,10" Content="Appearance" />
+                                <ListBoxItem Padding="20,10" Content="Privacy &amp; Security" />
+                                <ListBoxItem Padding="20,10" Content="Notifications" />
+                            </ListBox>
+                        </StackPanel>
+                    </Border>
+
+                    <ScrollViewer Grid.Column="1" Padding="40">
+                        <StackPanel MaxWidth="700" HorizontalAlignment="Left">
+                            <TextBlock
+                                Margin="0,0,0,10"
+                                FontSize="28"
+                                FontWeight="Bold"
+                                Foreground="{DynamicResource BaoBao_Text_Primary_Brush}"
+                                Text="Account Settings" />
+                            <TextBlock
+                                Margin="0,0,0,30"
+                                Foreground="{DynamicResource BaoBao_Text_Secondary_Brush}"
+                                Text="Manage your personal information and security." />
+
+                            <controls:BaoBaoDivider
+                                Margin="0,0,0,20"
+                                HorizontalContentAlignment="Left"
+                                Content="Profile" />
+
+                            <Grid Margin="0,0,0,30">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <controls:BaoBaoAvatar
+                                    Width="80"
+                                    Height="80"
+                                    Margin="0,0,30,0"
+                                    CornerRadius="40"
+                                    FontSize="32"
+                                    Text="JD" />
+                                <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                                    <StackPanel Margin="0,0,0,10" Orientation="Horizontal">
+                                        <Button Margin="0,0,10,0" Content="Upload New Photo" />
+                                        <Button
+                                            Background="Transparent"
+                                            BorderBrush="{DynamicResource BaoBao_Border_Brush}"
+                                            BorderThickness="1"
+                                            Content="Remove"
+                                            Foreground="{DynamicResource BaoBao_Text_Secondary_Brush}" />
+                                    </StackPanel>
+                                    <TextBlock
+                                        FontSize="12"
+                                        Foreground="{DynamicResource BaoBao_Text_Secondary_Brush}"
+                                        Text="Recommended size: 256x256px. JPG, PNG allowed." />
+                                </StackPanel>
+                            </Grid>
+
+                            <controls:BaoBaoUniformGrid
+                                Margin="0,0,0,30"
+                                ColumnSpacing="20"
+                                Columns="2"
+                                RowSpacing="20">
+                                <controls:DescriptionItem Label="First Name" Orientation="Vertical">
+                                    <TextBox Text="John" />
+                                </controls:DescriptionItem>
+                                <controls:DescriptionItem Label="Last Name" Orientation="Vertical">
+                                    <TextBox Text="Doe" />
+                                </controls:DescriptionItem>
+                                <controls:DescriptionItem Label="Email Address" Orientation="Vertical">
+                                    <TextBox Text="john.doe@example.com" />
+                                </controls:DescriptionItem>
+                                <controls:DescriptionItem Label="Phone Number" Orientation="Vertical">
+                                    <TextBox Text="+1 (555) 123-4567" />
+                                </controls:DescriptionItem>
+                            </controls:BaoBaoUniformGrid>
+
+                            <controls:BaoBaoDivider
+                                Margin="0,10,0,20"
+                                HorizontalContentAlignment="Left"
+                                Content="Preferences" />
+
+                            <StackPanel Margin="0,0,0,30">
+                                <Grid Margin="0,0,0,20">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel>
+                                        <TextBlock FontWeight="Bold" Text="Email Notifications" />
+                                        <TextBlock
+                                            Margin="0,5,0,0"
+                                            FontSize="12"
+                                            Foreground="{DynamicResource BaoBao_Text_Secondary_Brush}"
+                                            Text="Receive daily summary emails about activity" />
+                                    </StackPanel>
+                                    <controls:BaoBaoToggleSwitch Grid.Column="1" IsChecked="True" />
+                                </Grid>
+
+                                <Grid Margin="0,0,0,20">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel>
+                                        <TextBlock FontWeight="Bold" Text="Two-Factor Authentication" />
+                                        <TextBlock
+                                            Margin="0,5,0,0"
+                                            FontSize="12"
+                                            Foreground="{DynamicResource BaoBao_Text_Secondary_Brush}"
+                                            Text="Add an extra layer of security to your account" />
+                                    </StackPanel>
+                                    <controls:BaoBaoToggleSwitch Grid.Column="1" IsChecked="False" />
+                                </Grid>
+
+                                <Grid Margin="0,0,0,20">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel>
+                                        <TextBlock FontWeight="Bold" Text="Dark Mode" />
+                                        <TextBlock
+                                            Margin="0,5,0,0"
+                                            FontSize="12"
+                                            Foreground="{DynamicResource BaoBao_Text_Secondary_Brush}"
+                                            Text="Use dark theme for the application interface" />
+                                    </StackPanel>
+                                    <controls:BaoBaoToggleSwitch Grid.Column="1" IsChecked="{Binding ElementName=ThemeToggle, Path=IsChecked, Mode=TwoWay}" />
+                                </Grid>
+                            </StackPanel>
+
+                            <DockPanel>
+                                <Button
+                                    Width="150"
+                                    HorizontalAlignment="Left"
+                                    Content="Save Changes"
+                                    Style="{DynamicResource BaoBaoPrimaryButton}" />
+                                <Button
+                                    Margin="10,0,0,0"
+                                    Background="Transparent"
+                                    BorderThickness="0"
+                                    Content="Cancel"
+                                    Foreground="{DynamicResource BaoBao_Text_Secondary_Brush}" />
+                            </DockPanel>
+                        </StackPanel>
+                    </ScrollViewer>
+                </Grid>
+            </TabItem>
+
+            <!--  Tab: Icons (Original)  -->
+            <TabItem Header="Icon Gallery">
+                <Grid Margin="0,20,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <!--  Search Header  -->
+                    <Border
+                        Grid.Row="0"
+                        Margin="0,0,0,20"
+                        Style="{DynamicResource BaoBaoCard}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <StackPanel>
+                                <TextBlock
+                                    Margin="0,0,0,10"
+                                    FontSize="16"
+                                    FontWeight="Bold"
+                                    Text="Material Design Icons" />
+                                <TextBlock Foreground="{DynamicResource BaoBao_Text_Secondary_Brush}" Text="Click an icon to copy its XAML code." />
+                            </StackPanel>
+
+                            <TextBox
+                                Grid.Column="1"
+                                Width="300"
+                                VerticalAlignment="Center"
+                                helpers:ControlAttach.Watermark="Search icons..."
+                                TextChanged="IconSearch_TextChanged">
+                                <helpers:ControlAttach.Icon>
+                                    <iconPacks:PackIconMaterial
+                                        Width="14"
+                                        Height="14"
+                                        Kind="Magnify" />
+                                </helpers:ControlAttach.Icon>
+                            </TextBox>
+                        </Grid>
+                    </Border>
+
+                    <!--  Icon Grid  -->
+                    <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+                        <ItemsControl x:Name="IconList">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel />
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Button
+                                        Width="100"
+                                        Height="80"
+                                        Margin="5"
+                                        helpers:ControlAttach.CornerRadius="10"
+                                        Click="IconItem_Click"
+                                        Content="{Binding}"
+                                        FontSize="11"
+                                        Style="{DynamicResource BaoBaoVerticalButton}"
+                                        ToolTip="{Binding}">
+                                        <helpers:ControlAttach.Icon>
+                                            <iconPacks:PackIconMaterial
+                                                Width="24"
+                                                Height="24"
+                                                Kind="{Binding}" />
+                                        </helpers:ControlAttach.Icon>
+                                    </Button>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </ScrollViewer>
+
+                    <!--  BaoBaoPagination  -->
+                    <StackPanel Grid.Row="2">
+                        <Border
+                            Grid.Row="2"
+                            Margin="0,20,0,0"
+                            Style="{DynamicResource BaoBaoCard}">
+                            <controls:BaoBaoPagination
+                                x:Name="IconBaoBaoPagination"
+                                PageChanged="IconBaoBaoPagination_PageChanged"
+                                PageSize="100" />
+                        </Border>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+
+        </TabControl>
+
+        <!--  Global BaoBaoDrawer  -->
+        <controls:BaoBaoDrawer
+            x:Name="SettingsBaoBaoDrawer"
+            Header="Global Settings"
+            Position="Right">
+            <Grid Margin="20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <!--  Profile  -->
+                <StackPanel
+                    Grid.Row="0"
+                    Margin="0,0,0,20"
+                    Orientation="Horizontal">
+                    <Border
+                        Width="50"
+                        Height="50"
+                        Margin="0,0,15,0"
+                        Background="{DynamicResource BaoBao_Primary_Brush}"
+                        CornerRadius="25">
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            FontSize="24"
+                            FontWeight="Bold"
+                            Foreground="#FFFFFF"
+                            Text="A" />
+                    </Border>
+                    <StackPanel VerticalAlignment="Center">
+                        <TextBlock
+                            FontSize="16"
+                            FontWeight="Bold"
+                            Foreground="{DynamicResource BaoBao_Text_Primary_Brush}"
+                            Text="Admin User" />
+                        <TextBlock
+                            FontSize="12"
+                            Foreground="{DynamicResource BaoBao_Text_Secondary_Brush}"
+                            Text="admin@BaoBao.UI.WPF.com" />
+                    </StackPanel>
+                </StackPanel>
+
+                <Separator
+                    Grid.Row="1"
+                    Margin="0,0,0,20"
+                    Background="{DynamicResource BaoBao_Border_Brush}" />
+
+                <!--  Settings List  -->
+                <ScrollViewer
+                    Grid.Row="2"
+                    Padding="0,0,10,0"
+                    VerticalScrollBarVisibility="Auto">
+                    <StackPanel>
+                        <!--  Appearance Group  -->
+                        <TextBlock
+                            Margin="0,0,0,10"
+                            FontWeight="Bold"
+                            Foreground="{DynamicResource BaoBao_Text_Primary_Brush}"
+                            Text="Appearance" />
+                        <controls:BaoBaoToggleSwitch
+                            Margin="0,0,0,10"
+                            Content="Dark Mode"
+                            IsChecked="{Binding ElementName=ThemeToggle, Path=IsChecked, Mode=TwoWay}" />
+                        <controls:BaoBaoToggleSwitch Margin="0,0,0,10" Content="Compact Mode" />
+
+                        <TextBlock
+                            Margin="0,5,0,5"
+                            Foreground="{DynamicResource BaoBao_Text_Secondary_Brush}"
+                            Text="Accent Color" />
+                        <StackPanel Margin="0,0,0,20" Orientation="Horizontal">
+                            <Border
+                                Width="20"
+                                Height="20"
+                                Margin="0,0,10,0"
+                                Background="#18a058"
+                                CornerRadius="10"
+                                ToolTip="Green (Default)" />
+                            <Border
+                                Width="20"
+                                Height="20"
+                                Margin="0,0,10,0"
+                                Background="#2080f0"
+                                CornerRadius="10"
+                                ToolTip="Blue" />
+                            <Border
+                                Width="20"
+                                Height="20"
+                                Margin="0,0,10,0"
+                                Background="#f0a020"
+                                CornerRadius="10"
+                                ToolTip="Orange" />
+                            <Border
+                                Width="20"
+                                Height="20"
+                                Background="#d03050"
+                                CornerRadius="10"
+                                ToolTip="Red" />
+                        </StackPanel>
+
+                        <!--  General Group  -->
+                        <TextBlock
+                            Margin="0,0,0,10"
+                            FontWeight="Bold"
+                            Foreground="{DynamicResource BaoBao_Text_Primary_Brush}"
+                            Text="General" />
+
+                        <TextBlock
+                            Margin="0,0,0,5"
+                            Foreground="{DynamicResource BaoBao_Text_Secondary_Brush}"
+                            Text="Language" />
+                        <ComboBox Margin="0,0,0,15" SelectedIndex="0">
+                            <ComboBoxItem Content="English (US)" />
+                            <ComboBoxItem Content="简体中文" />
+                            <ComboBoxItem Content="日本語" />
+                        </ComboBox>
+
+                        <TextBlock
+                            Margin="0,5,0,10"
+                            FontWeight="Bold"
+                            Foreground="{DynamicResource BaoBao_Text_Primary_Brush}"
+                            Text="Notifications" />
+                        <controls:BaoBaoToggleSwitch
+                            Margin="0,0,0,10"
+                            Content="Enable Push Notifications"
+                            IsChecked="True" />
+                        <controls:BaoBaoToggleSwitch
+                            Margin="0,0,0,20"
+                            Content="Email Digest"
+                            IsChecked="False" />
+
+                        <!--  System Group  -->
+                        <TextBlock
+                            Margin="0,0,0,10"
+                            FontWeight="Bold"
+                            Foreground="{DynamicResource BaoBao_Text_Primary_Brush}"
+                            Text="System" />
+                        <DockPanel Margin="0,0,0,10" LastChildFill="False">
+                            <TextBlock
+                                VerticalAlignment="Center"
+                                Foreground="{DynamicResource BaoBao_Text_Secondary_Brush}"
+                                Text="Version" />
+                            <TextBlock
+                                VerticalAlignment="Center"
+                                DockPanel.Dock="Right"
+                                Foreground="{DynamicResource BaoBao_Text_Primary_Brush}"
+                                Text="v1.0.2" />
+                        </DockPanel>
+                        <Button Margin="0,0,0,10" Content="Check for Updates" />
+                        <Button Margin="0,0,0,20" Content="Clear Cache" />
+
+                    </StackPanel>
+                </ScrollViewer>
+
+                <!--  Footer  -->
+                <StackPanel Grid.Row="3" Margin="0,20,0,0">
+                    <Button
+                        Background="{DynamicResource BaoBao_Error_Brush}"
+                        BorderBrush="{DynamicResource BaoBao_Error_Brush}"
+                        Content="Log Out"
+                        Foreground="White"
+                        Style="{DynamicResource BaoBaoPrimaryButton}" />
+                </StackPanel>
+            </Grid>
+        </controls:BaoBaoDrawer>
+    </Grid>
+</controls:BaoBaoWindow>

@@ -1,0 +1,92 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:BaoBao.UI.WPF.Controls">
+
+    <ResourceDictionary.MergedDictionaries>
+        <!--  Dependencies moved to App.xaml for ThemeManager control  -->
+
+        <!--  Controls  -->
+        <ResourceDictionary Source="pack://application:,,,/BaoBao.UI.WPF;component/Themes/Controls/Window.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/BaoBao.UI.WPF;component/Themes/Controls/Button.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/BaoBao.UI.WPF;component/Themes/Controls/TextBox.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/BaoBao.UI.WPF;component/Themes/Controls/PasswordBox.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/BaoBao.UI.WPF;component/Themes/Controls/CheckBox.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/BaoBao.UI.WPF;component/Themes/Controls/RadioButton.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/BaoBao.UI.WPF;component/Themes/Controls/Border.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/BaoBao.UI.WPF;component/Themes/Controls/ProgressBar.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/BaoBao.UI.WPF;component/Themes/Controls/Slider.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/BaoBao.UI.WPF;component/Themes/Controls/TabControl.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/BaoBao.UI.WPF;component/Themes/Controls/ComboBox.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/BaoBao.UI.WPF;component/Themes/Controls/ScrollViewer.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/BaoBao.UI.WPF;component/Themes/Controls/ListBox.xaml" />
+
+        <ResourceDictionary Source="pack://application:,,,/BaoBao.UI.WPF;component/Themes/Controls/GroupBox.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/BaoBao.UI.WPF;component/Themes/Controls/DataGrid.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/BaoBao.UI.WPF;component/Themes/Controls/TreeView.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/BaoBao.UI.WPF;component/Themes/Controls/Expander.xaml" />
+
+        <!--  New Popups & Menus  -->
+        <ResourceDictionary Source="pack://application:,,,/BaoBao.UI.WPF;component/Themes/Controls/Menu.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/BaoBao.UI.WPF;component/Themes/Controls/ToolTip.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/BaoBao.UI.WPF;component/Themes/Controls/BaoBaoToast.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/BaoBao.UI.WPF;component/Themes/Controls/MessageBox.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/BaoBao.UI.WPF;component/Themes/Controls/BaoBaoNumericUpDown.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/BaoBao.UI.WPF;component/Themes/Controls/Calendar.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/BaoBao.UI.WPF;component/Themes/Controls/DatePicker.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/BaoBao.UI.WPF;component/Themes/Controls/BaoBaoDateTimePicker.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/BaoBao.UI.WPF;component/Themes/Controls/BaoBaoLoading.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/BaoBao.UI.WPF;component/Themes/Controls/BaoBaoTagInput.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/BaoBao.UI.WPF;component/Themes/Controls/BaoBaoPagination.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/BaoBao.UI.WPF;component/Themes/Controls/BaoBaoStepBar.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/BaoBao.UI.WPF;component/Themes/Controls/BaoBaoDrawer.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/BaoBao.UI.WPF;component/Themes/Controls/BaoBaoToggleSwitch.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/BaoBao.UI.WPF;component/Themes/Controls/BaoBaoCodeExample.xaml" />
+
+        <!--  New Components  -->
+        <ResourceDictionary Source="pack://application:,,,/BaoBao.UI.WPF;component/Themes/Controls/BaoBaoAvatar.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/BaoBao.UI.WPF;component/Themes/Controls/BaoBaoBadge.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/BaoBao.UI.WPF;component/Themes/Controls/BaoBaoBreadcrumbBar.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/BaoBao.UI.WPF;component/Themes/Controls/BaoBaoColorPicker.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/BaoBao.UI.WPF;component/Themes/Controls/BaoBaoTimeline.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/BaoBao.UI.WPF;component/Themes/Controls/BaoBaoPopover.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/BaoBao.UI.WPF;component/Themes/Controls/BaoBaoEmpty.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/BaoBao.UI.WPF;component/Themes/Controls/BaoBaoRangeSlider.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/BaoBao.UI.WPF;component/Themes/Controls/BaoBaoRating.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/BaoBao.UI.WPF;component/Themes/Controls/BaoBaoCircleProgressBar.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/BaoBao.UI.WPF;component/Themes/Controls/BaoBaoSkeleton.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/BaoBao.UI.WPF;component/Themes/Controls/BaoBaoCarousel.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/BaoBao.UI.WPF;component/Themes/Controls/BaoBaoDivider.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/BaoBao.UI.WPF;component/Themes/Controls/BaoBaoStatistic.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/BaoBao.UI.WPF;component/Themes/Controls/BaoBaoDescriptionList.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/BaoBao.UI.WPF;component/Themes/Controls/BaoBaoIcon.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <!--  Global Styles to apply automatically  -->
+    <Style BasedOn="{StaticResource BaoBaoTextBlock}" TargetType="TextBlock" />
+    <Style BasedOn="{StaticResource BaoBaoButton}" TargetType="Button" />
+    <Style BasedOn="{StaticResource BaoBaoTextBox}" TargetType="TextBox" />
+    <Style BasedOn="{StaticResource BaoBaoPasswordBox}" TargetType="PasswordBox" />
+    <Style BasedOn="{StaticResource BaoBaoCheckBox}" TargetType="CheckBox" />
+    <Style BasedOn="{StaticResource BaoBaoRadioButton}" TargetType="RadioButton" />
+    <Style BasedOn="{StaticResource BaoBaoProgressBar}" TargetType="ProgressBar" />
+    <Style BasedOn="{StaticResource BaoBaoSlider}" TargetType="Slider" />
+    <Style BasedOn="{StaticResource BaoBaoTabControl}" TargetType="TabControl" />
+    <Style BasedOn="{StaticResource BaoBaoComboBox}" TargetType="ComboBox" />
+    <Style BasedOn="{StaticResource BaoBaoListBox}" TargetType="ListBox" />
+    <Style BasedOn="{StaticResource BaoBaoGroupBox}" TargetType="GroupBox" />
+    <Style BasedOn="{StaticResource BaoBaoDataGrid}" TargetType="DataGrid" />
+    <Style BasedOn="{StaticResource BaoBaoTreeView}" TargetType="TreeView" />
+    <Style BasedOn="{StaticResource BaoBaoExpander}" TargetType="Expander" />
+    <Style BasedOn="{StaticResource BaoBaoMenu}" TargetType="Menu" />
+
+    <Style BasedOn="{StaticResource BaoBaoScrollViewer}" TargetType="ScrollViewer" />
+
+    <Style BasedOn="{StaticResource BaoBaoToolTip}" TargetType="ToolTip" />
+    <Style BasedOn="{StaticResource BaoBaoContextMenu}" TargetType="ContextMenu" />
+    <Style BasedOn="{StaticResource BaoBaoMenuItem}" TargetType="MenuItem" />
+    <Style BasedOn="{StaticResource BaoBaoWindowStyle}" TargetType="controls:BaoBaoWindow" />
+    <Style BasedOn="{StaticResource BaoBaoCalendar}" TargetType="Calendar" />
+    <Style BasedOn="{StaticResource BaoBaoDatePicker}" TargetType="DatePicker" />
+
+</ResourceDictionary>

@@ -1,0 +1,88 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:BaoBao.UI.WPF.Controls">
+
+    <Style x:Key="BaoBaoBadge" TargetType="{x:Type controls:BaoBaoBadge}">
+        <Setter Property="BaoBaoBadgeBackground" Value="{DynamicResource BaoBao_Error_Brush}" />
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="VerticalContentAlignment" Value="Stretch" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type controls:BaoBaoBadge}">
+                    <Grid>
+                        <ContentPresenter
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            Content="{TemplateBinding Content}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}" />
+
+                        <Border
+                            x:Name="BaoBaoBadgeBorder"
+                            Height="20"
+                            MinWidth="20"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Top"
+                            Background="{TemplateBinding BaoBaoBadgeBackground}"
+                            BorderBrush="{DynamicResource BaoBao_Surface_Brush}"
+                            BorderThickness="1"
+                            CornerRadius="10">
+                            <Border.RenderTransform>
+                                <TranslateTransform X="{Binding Offset.X, RelativeSource={RelativeSource TemplatedParent}}" Y="{Binding Offset.Y, RelativeSource={RelativeSource TemplatedParent}}" />
+                            </Border.RenderTransform>
+                            <!--  Default Margin for standard overlap  -->
+                            <Border.Style>
+                                <Style TargetType="Border">
+                                    <Setter Property="Margin" Value="-10,-10,0,0" />
+                                </Style>
+                            </Border.Style>
+
+                            <TextBlock
+                                x:Name="BaoBaoBadgeText"
+                                Padding="6,0"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                FontSize="{TemplateBinding FontSize}"
+                                Foreground="{TemplateBinding Foreground}"
+                                Text="{TemplateBinding BaoBaoBadgeText}" />
+                        </Border>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <!--  Dot Mode  -->
+                        <Trigger Property="IsDot" Value="True">
+                            <Setter TargetName="BaoBaoBadgeText" Property="Visibility" Value="Collapsed" />
+                            <Setter TargetName="BaoBaoBadgeBorder" Property="MinWidth" Value="8" />
+                            <Setter TargetName="BaoBaoBadgeBorder" Property="Height" Value="8" />
+                            <Setter TargetName="BaoBaoBadgeBorder" Property="CornerRadius" Value="4" />
+                            <Setter TargetName="BaoBaoBadgeBorder" Property="Padding" Value="0" />
+                            <Setter TargetName="BaoBaoBadgeBorder" Property="Margin" Value="-4,-4,0,0" />
+                        </Trigger>
+
+                        <!--  Hide if BaoBaoEmpty text (and not dot)  -->
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="BaoBaoBadgeText" Value="" />
+                                <Condition Property="IsDot" Value="False" />
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="BaoBaoBadgeBorder" Property="Visibility" Value="Collapsed" />
+                        </MultiTrigger>
+
+                        <!--  Hide if null text (and not dot)  -->
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="BaoBaoBadgeText" Value="{x:Null}" />
+                                <Condition Property="IsDot" Value="False" />
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="BaoBaoBadgeBorder" Property="Visibility" Value="Collapsed" />
+                        </MultiTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style BasedOn="{StaticResource BaoBaoBadge}" TargetType="{x:Type controls:BaoBaoBadge}" />
+
+</ResourceDictionary>

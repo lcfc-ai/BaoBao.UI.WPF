@@ -1,0 +1,20 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/BaoBao.UI.WPF;component/Themes/Colors.xaml" />
+        <ResourceDictionary Source="/BaoBao.UI.WPF;component/Themes/Sizes.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <!--  Base Control Style  -->
+    <Style x:Key="BaoBaoControlBase" TargetType="Control">
+        <Setter Property="Margin" Value="{DynamicResource BaoBao_Margin_Default}" />
+        <Setter Property="FontSize" Value="{DynamicResource BaoBao_FontSize_Normal}" />
+        <Setter Property="Foreground" Value="{DynamicResource BaoBao_Text_Primary_Brush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource BaoBao_Border_Brush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="UseLayoutRounding" Value="True" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+    </Style>
+
+</ResourceDictionary>

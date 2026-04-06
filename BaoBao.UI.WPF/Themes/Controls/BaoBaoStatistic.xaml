@@ -1,0 +1,79 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:BaoBao.UI.WPF.Controls"
+    xmlns:converters="clr-namespace:BaoBao.UI.WPF.Converters">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/BaoBao.UI.WPF;component/Themes/BaseStyles.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <converters:ObjectToVisibilityConverter x:Key="ObjectToVisibilityConverter" />
+
+    <Style TargetType="{x:Type controls:BaoBaoStatistic}">
+        <Setter Property="Foreground" Value="{DynamicResource BaoBao_Text_Primary_Brush}" />
+        <!--  Add Background transparent to catch hits if needed, though StackPanel ignores it mostly  -->
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type controls:BaoBaoStatistic}">
+                    <StackPanel Background="{TemplateBinding Background}">
+                        <!--  Label  -->
+                        <TextBlock
+                            Margin="0,0,0,4"
+                            FontSize="14"
+                            Foreground="{DynamicResource BaoBao_Text_Secondary_Brush}"
+                            Text="{TemplateBinding Label}"
+                            Visibility="{TemplateBinding Label,
+                                                         Converter={StaticResource ObjectToVisibilityConverter}}" />
+
+                        <!--  Value Row  -->
+                        <StackPanel VerticalAlignment="Bottom" Orientation="Horizontal">
+                            <!--  Icon  -->
+                            <!--  Optimize: VerticalAlignment Center usually better for icons relative to text  -->
+                            <ContentPresenter
+                                Margin="0,0,8,0"
+                                VerticalAlignment="Bottom"
+                                Content="{TemplateBinding Icon}"
+                                TextBlock.Foreground="{TemplateBinding Foreground}" />
+                            <!--  Changed to Bottom to align with baseline if possible, or Center if icon is large. Center is safer.  -->
+
+                            <!--  Prefix  -->
+                            <TextBlock
+                                Margin="0,0,4,2"
+                                VerticalAlignment="Bottom"
+                                FontSize="14"
+                                FontWeight="Normal"
+                                Foreground="{TemplateBinding Foreground}"
+                                Text="{TemplateBinding Prefix}"
+                                Visibility="{TemplateBinding Prefix,
+                                                             Converter={StaticResource ObjectToVisibilityConverter}}" />
+                            <!--  Optimized: Smaller font for prefix looks more professional  -->
+
+                            <!--  Value  -->
+                            <ContentPresenter
+                                VerticalAlignment="Bottom"
+                                Content="{TemplateBinding Value}"
+                                TextBlock.FontSize="24"
+                                TextBlock.FontWeight="Bold"
+                                TextBlock.Foreground="{TemplateBinding Foreground}" />
+
+                            <!--  Suffix  -->
+                            <TextBlock
+                                Margin="4,0,0,2"
+                                VerticalAlignment="Bottom"
+                                FontSize="14"
+                                FontWeight="Normal"
+                                Foreground="{TemplateBinding Foreground}"
+                                Text="{TemplateBinding Suffix}"
+                                Visibility="{TemplateBinding Suffix,
+                                                             Converter={StaticResource ObjectToVisibilityConverter}}" />
+                            <!--  Optimized: Smaller font for suffix  -->
+                        </StackPanel>
+                    </StackPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

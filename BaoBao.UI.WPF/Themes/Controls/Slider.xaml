@@ -1,0 +1,130 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:helpers="clr-namespace:BaoBao.UI.WPF.Helpers">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/BaoBao.UI.WPF;component/Themes/BaseStyles.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style x:Key="RepeatButtonTransparent" TargetType="{x:Type RepeatButton}">
+        <Setter Property="OverridesDefaultStyle" Value="true" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Focusable" Value="false" />
+        <Setter Property="IsTabStop" Value="false" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type RepeatButton}">
+                    <Rectangle
+                        Width="{TemplateBinding Width}"
+                        Height="{TemplateBinding Height}"
+                        Fill="{TemplateBinding Background}" />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="BaoBaoSliderThumb" TargetType="{x:Type Thumb}">
+        <Setter Property="OverridesDefaultStyle" Value="true" />
+        <Setter Property="Height" Value="18" />
+        <Setter Property="Width" Value="18" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Thumb}">
+                    <Grid>
+                        <Ellipse
+                            x:Name="Outer"
+                            Fill="{DynamicResource BaoBao_Thumb_Fill}"
+                            Stroke="{DynamicResource BaoBao_Thumb_Border}"
+                            StrokeThickness="2" />
+                        <Ellipse
+                            x:Name="Hover"
+                            Width="24"
+                            Height="24"
+                            Fill="{DynamicResource BaoBao_Thumb_Border}"
+                            IsHitTestVisible="False"
+                            Opacity="0" />
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="Outer" Property="Stroke" Value="{DynamicResource BaoBao_Thumb_Hover}" />
+                            <Setter TargetName="Hover" Property="Opacity" Value="0.2" />
+                        </Trigger>
+                        <Trigger Property="IsDragging" Value="True">
+                            <Setter TargetName="Outer" Property="Fill" Value="{DynamicResource BaoBao_Thumb_Border}" />
+                            <Setter TargetName="Outer" Property="Stroke" Value="{DynamicResource BaoBao_Thumb_Border}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style
+        x:Key="BaoBaoSlider"
+        BasedOn="{StaticResource BaoBaoControlBase}"
+        TargetType="Slider">
+        <Setter Property="Stylus.IsPressAndHoldEnabled" Value="false" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Foreground" Value="{DynamicResource BaoBao_Track_Background}" />
+        <Setter Property="helpers:ControlAttach.CornerRadius" Value="{DynamicResource BaoBao_CornerRadius_Small}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Slider">
+                    <Border Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                        <Grid VerticalAlignment="Center">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Border
+                                x:Name="TrackBackground"
+                                Grid.Row="1"
+                                Height="4"
+                                VerticalAlignment="Center"
+                                Background="{TemplateBinding Foreground}"
+                                CornerRadius="{Binding Path=(helpers:ControlAttach.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}" />
+
+                            <Canvas
+                                Grid.Row="1"
+                                Height="4"
+                                VerticalAlignment="Center">
+                                <Border
+                                    x:Name="PART_SelectionRange"
+                                    Height="4"
+                                    Background="{DynamicResource BaoBao_Thumb_Border}"
+                                    CornerRadius="{Binding Path=(helpers:ControlAttach.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}"
+                                    Visibility="Hidden" />
+                            </Canvas>
+
+                            <Track x:Name="PART_Track" Grid.Row="1">
+                                <Track.DecreaseRepeatButton>
+                                    <RepeatButton Command="{x:Static Slider.DecreaseLarge}" Style="{StaticResource RepeatButtonTransparent}" />
+                                </Track.DecreaseRepeatButton>
+                                <Track.IncreaseRepeatButton>
+                                    <RepeatButton Command="{x:Static Slider.IncreaseLarge}" Style="{StaticResource RepeatButtonTransparent}" />
+                                </Track.IncreaseRepeatButton>
+                                <Track.Thumb>
+                                    <Thumb
+                                        x:Name="Thumb"
+                                        VerticalAlignment="Center"
+                                        Focusable="False"
+                                        OverridesDefaultStyle="True"
+                                        Style="{StaticResource BaoBaoSliderThumb}" />
+                                </Track.Thumb>
+                            </Track>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsSelectionRangeEnabled" Value="true">
+                            <Setter TargetName="PART_SelectionRange" Property="Visibility" Value="Visible" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>
